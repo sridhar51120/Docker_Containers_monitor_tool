@@ -9,6 +9,3 @@ for i in lines:
     if (str(i.split()[0]) == 'sridhardscv/simple_calculater'):
         print(i.split()[6])
     # print(i.split())
-
-
-
