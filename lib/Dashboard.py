@@ -1,10 +1,10 @@
 from lib.Docker_ID import Docker_ID
 
 class Dashboard:
-    def __init__(self,name,image,status=None,port=None,resource_limit = None,health_status = None,logs = None):
+    def __init__(self,name,image=None,status=None,port=None,resource_limit = None,health_status = None,logs = None):
         self.Name = name
         self.Id = Docker_ID(self.Name).ContainerId()
-        self.Image = image
+        self.Image = "Ubuntu 22.03"
         self.status = "Running" # TODO:Collect the Status
         self.port = "8080" # TODO: Collect the Port Details
         self.resource_limit = {

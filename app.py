@@ -1,6 +1,7 @@
 from lib.Argument import Argument
 from lib.Dashboard import Dashboard
 import sys
+import json
 
 # Container name with id
 
@@ -22,12 +23,15 @@ try:
         elif Arg.hasOptionValue('--name') and Arg.hasOption(['--info']):
             Dashboard = Dashboard(Arg.getoptionvalue('--name'))
             info = Dashboard.ContainerInfo()
-            print(info)
+            print(json.dumps(info, indent = 4))
+
+        elif Arg.hasOption(['--list']):
+            
 
 except:
     print("Error")
 
 
 # Dashboard = Dashboard("sridhar")
-# print(Dashboard.Container_Id())
+# print(Dashboard.ContainerInfo())
 
