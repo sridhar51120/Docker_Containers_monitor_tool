@@ -6,7 +6,9 @@ class User:
                 fileData = json.load(file)
             file.close()
             if name in fileData:
-                return False
+                return True
+                # TODO: Change the User Privillages 
+                # return False
             else:
                 return True
         except json.JSONDecodeError as e:

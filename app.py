@@ -25,6 +25,7 @@ if Arg.hasCommands(['Container']):
             if user.newUser(name,user_id,json_file_path):
                 constainer_id = user.addUser(name,user_id,json_file_path)
                 image = Arg.getoptionvalue('--image')
+                options = None
                 if Arg.getoptionvalue('--options') != None:
                     options = Arg.getoptionvalue('--options')
 

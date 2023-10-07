@@ -8,6 +8,7 @@ class RunCommand:
         self.stdout = output
 
     def Run_Command(self,command):
+        print(command)
         result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
         if result.returncode != 0:
             print(f"Error: {result.stderr}")
