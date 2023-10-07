@@ -1,5 +1,5 @@
 import subprocess
-
+import os
 class RunCommand:
     def __init__(self=None,command=None,status=None,error=None,output=None):
         self.command = command
@@ -9,11 +9,13 @@ class RunCommand:
 
     def Run_Command(self,command):
         print(command)
-        result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-        if result.returncode != 0:
-            print(f"Error: {result.stderr}")
-        else:
-            print(f"Image built successfully: {result.stdout}")
+        os.system(command)
+        # command = "ls"
+        # result = subprocess.call(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        # if result.returncode != 0:
+        #     print(f"Error: {result.stderr}")
+        # else:
+        #     print(f"Image built successfully: {result.stdout}")
 
 
 # run = RunCommand("ls")
