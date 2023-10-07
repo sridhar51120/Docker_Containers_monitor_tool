@@ -3,32 +3,15 @@ from lib.Dashboard import Dashboard
 import json
 import os
 import sys
+from lib.User import User
+from lib.Docker_ID import Docker_ID
 from lib.DockerContainer import DockerContainer
 
 # TODO: Containers Class
 container = DockerContainer()
+user = User()
 Arg = Argument(sys.argv)
-       
-def addUser(data, json_file_path="data.json"):
-    try:
-        if json_file_path and json_file_path.strip() and len(json_file_path.strip()) > 0:
-            with open(json_file_path, 'r') as file:
-                existing_data = json.load(file)
-        else:
-            existing_data = []
-        existing_data.append(data)
-
-        with open(json_file_path, 'w') as file:
-            json.dump(existing_data, file, indent=4)
-        return True
-
-    except json.JSONDecodeError as e:
-        print(f"Invalid JSON format in the JSON file: {json_file_path}")
-        return False
-
-    except Exception as e:
-        print("An error occurred:", str(e))
-        return False
+json_file_path = "User/data.json"
 
 # try:
 if Arg.hasCommands(['Container']):
@@ -38,28 +21,25 @@ if Arg.hasCommands(['Container']):
     if Arg.hasCommands(['Create']):
         if Arg.hasOptionValue('--name') and Arg.hasOptionValue('--image') or Arg.hasOptionValue('--options'):
             name = Arg.getoptionvalue('--name')
-            image = Arg.getoptionvalue('--image')
-            
-            if Arg.getoptionvalue('--options') != None:
-                options = Arg.getoptionvalue('--options')
+            user_id = Docker_ID(name).ContainerId()
+            if user.newUser(name,user_id,json_file_path):
+                constainer_id = user.addUser(name,user_id,json_file_path)
+                image = Arg.getoptionvalue('--image')
+                if Arg.getoptionvalue('--options') != None:
+                    options = Arg.getoptionvalue('--options')
 
-            if Arg.getoptionvalue('--mode') == "-d":
-                mode = Arg.getoptionvalue('--mode')
-                whichPlace = None
-                print(mode)
-                print(whichPlace)
-                container.CreateContainer(name,image,options,mode,whichPlace)
-    
-            if Arg.getoptionvalue('--mode') == "-it" and Arg.hasOptionValue('--where'):
-                mode = Arg.getoptionvalue('--mode')
-                whichPlace = Arg.getoptionvalue('--where')
-                # print(mode)
-                # print(whichPlace)
-                container.CreateContainer(name,image,options,mode,whichPlace)
-            mode = None
-            whichPlace = None
-            container.CreateContainer(name,image,options,mode,whichPlace)
-            
+                if Arg.getoptionvalue('--mode') == "-d":
+                    mode = Arg.getoptionvalue('--mode')
+                    whichPlace = None
+                    container.CreateContainer(constainer_id,image,options,mode,whichPlace)
+
+                if Arg.getoptionvalue('--mode') == "-it" and Arg.hasOptionValue('--where'):
+                    mode = Arg.getoptionvalue('--mode')
+                    whichPlace = Arg.getoptionvalue('--where')
+                    container.CreateContainer(constainer_id,image,options,mode,whichPlace)
+            else:
+                raise Exception("User Name is Already Registered...")
+      
 
     elif Arg.hasOption(['--list']):
         print("list")

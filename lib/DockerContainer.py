@@ -10,15 +10,10 @@ class DockerContainer:
         options_str = ''
         for i in user_options_dict.items():
             options_str = options_str + f"'{i[0]}','{i[1]}',"
-        if whichPlace == None and mode == None:
-                # docker container create --ip6 2001:db8::1 -it my-image /bin/bash
-                # ['docker', 'build', '-t', 'my_image:latest', '.']
-            command = f"['docker','container','create', {options_str[:-1]},'-d','{image}']"
-            print(command)
-            # run.Run_Command(command)
+            
         if mode == '-d' and whichPlace == None:
-            command = f"['docker','container','create', {options_str[:-1]},'-d','{image}']"
-            print(command)
+            command = f"['docker','container','create', {options_str[:-1]},'--name',{name},'-d','{image}']"
+            run.Run_Command(command)
         if mode == '-it' and whichPlace != None:
-            command = f"['docker','container','create', {options_str[:-1]},'{mode}','{image}','{whichPlace}']"
-            print(command)
+            command = f"['docker','container','create', {options_str[:-1]},'--name',{name},'{mode}','{image}','{whichPlace}']"
+            run.Run_Command(command)

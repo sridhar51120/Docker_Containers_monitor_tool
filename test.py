@@ -11,7 +11,8 @@
 #     # print(i.split())
 
 
-test = {'-e':'-er','-f':'fr'}
-dict_str = ', '.join([f'{key}: {value}' for key, value in test.items()])
-re = dict_str.replace(',','')
-print(re.replace(':',''))
+# test = {'-e':'-er','-f':'fr'}
+# dict_str = ', '.join([f'{key}: {value}' for key, value in test.items()])
+# re = dict_str.replace(',','')
+# print(re.replace(':',''))
+
