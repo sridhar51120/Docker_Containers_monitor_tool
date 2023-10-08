@@ -9,7 +9,10 @@ class RunCommand:
 
     def Run_Command(self,command):
         print(command)
-        os.system(command)
+        os.system('docker run -d --name b9fa87a5a0fa56dd9e48 flask:1.0')
+        print("Done")
+        os.system('docker start 8fb378a47a65cc822f07')
+        print("Running")
         # command = "ls"
         # result = subprocess.call(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
         # if result.returncode != 0:
