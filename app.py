@@ -5,10 +5,10 @@ import os
 import sys
 from lib.User import User
 from lib.Docker_ID import Docker_ID
-from lib.DockerContainer import DockerContainer
+from lib.ContainerAction import ContainerAction
 
 # TODO: Containers Class
-container = DockerContainer()
+container = ContainerAction()
 user = User()
 Arg = Argument(sys.argv)
 json_file_path = "User/data.json"
@@ -53,8 +53,16 @@ if Arg.hasCommands(['Container']):
         print("List the Containers list")
       
     # TODO: for container stop
-    elif Arg.hasOptionValue('--name') and Arg.hasCommands(['stop']):
-        pass
+    # TODO: if thw User have the Username or Container Id to Do a Container action
+    elif Arg.hasCommands(['stop']):
+        id = user.ContainerId(json_file_path)
+        name = user.ContainerName(json_file_path)
+        print(name)
+        # if Arg.hasOptionValue('--options'):
+        #     if container.ContainerStop(id,Arg.getoptionvalue('--options')):
+        #         print(f"Container Restarted Succesfully....")
+        # else:
+        #     container.ContainerStop(id)
     
     
     # TODO: for Cotainer Restart
@@ -95,8 +103,63 @@ if Arg.hasCommands(['Container']):
     # TODO: for container ls
     elif Arg.hasOptionValue('--name') and Arg.hasCommands(['ls']):
         pass
-            
 
+    # TODO: for Container pause
+    elif Arg.hasOptionValue('--name') and Arg.hasCommands(['pause']):
+        pass
+    
+    # TODO: for port mapping
+    elif Arg.hasOptionValue('--name') and Arg.hasCommands(['port']):
+        pass
+    
+    # TODO: for Container Prune
+    elif Arg.hasOptionValue('--name') and Arg.hasCommands(['prune']):
+        pass
+    
+    # TODO: for Container rename
+    elif Arg.hasOptionValue('--name') and Arg.hasCommands(['rename']):
+        pass
+    
+    # TODO : for container restart
+    elif Arg.hasOptionValue('--name') and Arg.hasCommands(['restart']):
+        pass
+    
+    # TODO: for container run
+    elif Arg.hasOptionValue('--name') and Arg.hasCommands(['run']):
+        pass
+    
+    # TODO: for container run
+    elif Arg.hasOptionValue('--name') and Arg.hasCommands(['run']):
+        pass    
+    
+    # TODO: for container stats
+    elif Arg.hasOptionValue('--name') and Arg.hasCommands(['stats']):
+        pass 
+    
+    # TODO: for container Start
+    elif Arg.hasOptionValue('--name') and Arg.hasCommands(['start']):
+        pass       
+    
+    # TODO: for contaienr stop
+    elif Arg.hasOptionValue('--name') and Arg.hasCommands(['stop']):
+        pass 
+    
+    # TODO: for container top
+    elif Arg.hasOptionValue('--name') and Arg.hasCommands(['top']):
+        pass  
+    
+    # TODO: for container unpause
+    elif Arg.hasOptionValue('--name') and Arg.hasCommands(['unpause']):
+        pass 
+    
+    # TODO: for cotainer update
+    elif Arg.hasOptionValue('--name') and Arg.hasCommands(['update']):
+        pass  
+    
+    # TODO: for cotainer wait
+    elif Arg.hasOptionValue('--name') and Arg.hasCommands(['wait']):
+        pass  
+    
 # except:
 #     print("Error")
 
