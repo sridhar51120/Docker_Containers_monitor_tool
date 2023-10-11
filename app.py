@@ -41,28 +41,31 @@ if Arg.hasCommands(['Container']):
             else:
                 raise Exception("User Name is Already Registered...")
       
-    elif Arg.hasOption(['--list']):
-        print("list")
+    # elif Arg.hasOption(['--list']):
+    #     print("list")
 
-    elif Arg.hasOptionValue('--name') and Arg.hasOption(['--info']):
-        Dashboard = Dashboard(Arg.getoptionvalue('--name'))
-        info = Dashboard.ContainerInfo()
-        print(json.dumps(info, indent = 4))
+    # elif Arg.hasOptionValue('--name') and Arg.hasOption(['--info']):
+    #     Dashboard = Dashboard(Arg.getoptionvalue('--name'))
+    #     info = Dashboard.ContainerInfo()
+    #     print(json.dumps(info, indent = 4))
 
-    elif Arg.hasOption(['--list-all']):
-        print("List the Containers list")
+    # elif Arg.hasOption(['--list-all']):
+    #     print("List the Containers list")
       
     # TODO: for container stop
     # TODO: if thw User have the Username or Container Id to Do a Container action
     elif Arg.hasCommands(['stop']):
-        id = user.ContainerId(json_file_path)
-        name = user.ContainerName(json_file_path)
-        print(name)
-        # if Arg.hasOptionValue('--options'):
-        #     if container.ContainerStop(id,Arg.getoptionvalue('--options')):
-        #         print(f"Container Restarted Succesfully....")
-        # else:
-        #     container.ContainerStop(id)
+        if user.ContainerId(json_file_path):
+            id = user.ContainerId(json_file_path)
+            print(id)
+            name = user.ContainerName(json_file_path)
+            if Arg.hasOptionValue('--options'):
+                if container.ContainerStop(id,Arg.getoptionvalue('--options')):
+                    print(f"Container Restarted Succesfully....")
+            else:
+                container.ContainerStop(id)
+        else:
+            raise Exception("Please Provide A Container ID or Contaienr Name")
     
     
     # TODO: for Cotainer Restart
@@ -120,7 +123,7 @@ if Arg.hasCommands(['Container']):
     elif Arg.hasOptionValue('--name') and Arg.hasCommands(['rename']):
         pass
     
-    # TODO : for container restart
+    # TODO: for container restart
     elif Arg.hasOptionValue('--name') and Arg.hasCommands(['restart']):
         pass
     
