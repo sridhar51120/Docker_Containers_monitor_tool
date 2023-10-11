@@ -41,7 +41,6 @@ if Arg.hasCommands(['Container']):
             else:
                 raise Exception("User Name is Already Registered...")
       
-
     elif Arg.hasOption(['--list']):
         print("list")
 
@@ -52,6 +51,50 @@ if Arg.hasCommands(['Container']):
 
     elif Arg.hasOption(['--list-all']):
         print("List the Containers list")
+      
+    # TODO: for container stop
+    elif Arg.hasOptionValue('--name') and Arg.hasCommands(['stop']):
+        pass
+    
+    
+    # TODO: for Cotainer Restart
+    elif Arg.hasOptionValue('--name') and Arg.hasCommands(['restart']):
+        pass
+    
+    
+    # TODO: for container Remove
+    elif Arg.hasOptionValue('--name') and Arg.hasCommands(['remove']):
+        pass
+    
+    
+    # TODO: for Contaienr Exec
+    elif Arg.hasOptionValue('--name') and Arg.hasCommands(['exec']):
+        pass
+    
+    
+    # TODO: for Container export
+    elif Arg.hasOptionValue('--name') and Arg.hasCommands(['export']):
+        pass
+    
+    
+    # TODO: for container inspect
+    elif Arg.hasOptionValue('--name') and Arg.hasCommands(['inspect']):
+        pass
+    
+    
+    # TODO: for container kill
+    elif Arg.hasOptionValue('--name') and Arg.hasCommands(['kill']):
+        pass
+    
+    
+    # TODO: for container logs
+    elif Arg.hasOptionValue('--name') and Arg.hasCommands(['logs']):
+        pass
+    
+    
+    # TODO: for container ls
+    elif Arg.hasOptionValue('--name') and Arg.hasCommands(['ls']):
+        pass
             
 
 # except:
