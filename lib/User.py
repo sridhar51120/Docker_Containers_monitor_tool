@@ -73,12 +73,13 @@ class User:
         except Exception as e:
             print(f'Exception {e}')
 
-    def UserContainerOption(self,userOption):
-        options = userOption.replace("'", "\"")
-        options = userOption.replace("'", "\"")
-        options_dict = ast.literal_eval(options)
-        options_str = ''
-        for i in options_dict.items():
-            options_str = options_str + f"'{i[0]}','{i[1]}',"
-            
-        return options_str
+    # def UserContainerOption(self,userOption):
+    #     options = userOption.replace("'", "\"")
+    #     options = userOption.replace("'", "\"")
+    #     options_dict = ast.literal_eval(options)
+    #     options_str = ''
+    #     for i in options_dict.items():
+    #         options_str = options_str + f"'{i[0]}','{i[1]}',"
+        
+    #     return options_str[:-1]
+    

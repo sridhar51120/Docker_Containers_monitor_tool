@@ -59,9 +59,9 @@ if Arg.hasCommands(['Container']):
     try:
         if user.ContainerId(json_file_path): #TODO: if the Container name or id is given or not 
             id = user.ContainerId(json_file_path) # get the Container id in User Input
-            print(f"Container Id ==> {id}")
+            # print(f"Container Id ==> {id}")
             name = user.ContainerName(json_file_path) # get the Container Name
-            print(f"Container Name ==> {name}")
+            # print(f"Container Name ==> {name}")
             
             '''
             Command Usage ==> "python app.py Container --name="Sridhar" stop"
@@ -70,10 +70,10 @@ if Arg.hasCommands(['Container']):
             if Arg.hasCommands(['stop']):
                 if Arg.hasOptionValue('--options'):
                     if container.ContainerStop(id,Arg.getoptionvalue('--options')):
-                        print(f"Container {name} stoped Succesfully....")
+                        print(f"Container {name} [{id}] stoped Succesfully....")
                 else:
                     if container.ContainerStop(id):
-                        print(f"Container {name} stoped Successfully....")
+                        print(f"Container {name} [{id}] stoped Successfully....")
                         
             if Arg.hasCommands(['restart']):
                 if Arg.hasOptionValue('--options'):

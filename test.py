@@ -1,4 +1,6 @@
 # import subprocess
+from lib.User import User
+usr = User()
 
 # command = "docker images"
 
@@ -11,21 +13,21 @@
 #     # print(i.split())
 
 
-# test = {'-e':'-er','-f':'fr'}
-# dict_str = ', '.join([f'{key}: {value}' for key, value in test.items()])
-# re = dict_str.replace(',','')
-# print(re.replace(':',''))
+# test = "{'-e':'-er','-f':'fr'}"
+# val = usr.UserContainerOption(test)
+# print(val)
 
-import json
 
-# Open and read the JSON file
-with open('User/data.json', 'r') as json_file:
-    datas = json.load(json_file)
+# import json
 
-value = 'b9fa87a5a0fa56dd9e48'
-for data in datas.items():
-    if data[1] == value:
-        print(data[0])
+# # Open and read the JSON file
+# with open('User/data.json', 'r') as json_file:
+#     datas = json.load(json_file)
+
+# value = 'b9fa87a5a0fa56dd9e48'
+# for data in datas.items():
+#     if data[1] == value:
+#         print(data[0])
 
 
 

@@ -1,5 +1,6 @@
 import os
 import subprocess
+import json
 from lib.User import User
 from lib.RunCommand import RunCommand
 run = RunCommand()
@@ -28,23 +29,23 @@ class ContainerAction:
                 
     def ContainerStop(self,id,options=None):
         if options:
-            options_str = user.UserContainerOption(options)
-            command = f"docker container stop {id} {options_str}"
-            # TODO:Change it with Subproccess.run Command For Validating the input and output
-            # os.system(command)
-            return True
-            '''
-            if (subprocess.run(command)):
+            pass
+            # TODO: --options="key1:value1,key2:value2,key3:value3"
+            # command = ["docker", "container","stop",f"{id}",dictionary]
+            # print(command)
+            # result = subprocess.run(command, capture_output=True, text=True)
+            # print(result)
+            # if result.returncode == 0:
+            #     return True
+            # else:
+            #     return False
+        else:
+            command = ["docker", "container","stop", f"{id}"]
+            result = subprocess.run(command, capture_output=True, text=True)
+            if result.returncode == 0:
                 return True
             else:
                 return False
-            if the Process is Successfully Executed then it will returns True value otherwise False
-            '''
-        else:
-            command  = f"docker container stop {id}"
-            # TODO:Change it with Subproccess.run Command For Validating the input and output
-            # os.system(command)
-            return True
         
     def ContainerRestart(self,id,options=None):
         if options:
