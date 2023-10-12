@@ -59,7 +59,7 @@ class User:
     def ContainerName(self,json_file_path):
         try:
             if Arg.hasOptionValue('--name'):
-                return True,Arg.getoptionvalue('--name')
+                return Arg.getoptionvalue('--name')
             
             if Arg.hasOptionValue('--id'):
                 id = Arg.getoptionvalue('--id')
@@ -68,7 +68,7 @@ class User:
                     file.close()
                     for data in fileData.items():
                         if data[1] == id:
-                            return True,str(data[0])
+                            return str(data[0])
                     
         except Exception as e:
             print(f'Exception {e}')

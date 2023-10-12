@@ -26,12 +26,13 @@ class ContainerAction:
                 # command = f"['docker','container','create','--name','{name}','{mode}','{image}','{whichPlace}']"
                 run.Run_Command(command)
                 
-    def ContainerStop(self,id,options):
-        if options != None:
+    def ContainerStop(self,id,options=None):
+        if options:
             options_str = user.UserContainerOption(options)
             command = f"docker container stop {id} {options_str}"
             # TODO:Change it with Subproccess.run Command For Validating the input and output
-            os.system(command)
+            # os.system(command)
+            return True
             '''
             if (subprocess.run(command)):
                 return True
@@ -42,19 +43,22 @@ class ContainerAction:
         else:
             command  = f"docker container stop {id}"
             # TODO:Change it with Subproccess.run Command For Validating the input and output
-            os.system(command)
+            # os.system(command)
+            return True
         
     def ContainerRestart(self,id,options=None):
-        if options != None:
+        if options:
             options_str = user.UserContainerOption(options)
             command = f"docker container restart {id}"
             # TODO:Change it with Subproccess.run Command For Validating the input and output
-            os.system(command)
+            # os.system(command)
+            return True
            
         else:
             command  = f"docker container restart {id}"
             # TODO:Change it with Subproccess.run Command For Validating the input and output
-            os.system(command)
+            # os.system(command)
+            return True
     
     def ContainerStart(self):
         pass
