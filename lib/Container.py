@@ -45,19 +45,22 @@ class Container:
         except Exception as e:
             print(f'Exception {e}')
 
-    def UserContainerOptionCommand(self,command,id,userOption=None):
+    def UserContainerOptionCommand(self,command,userOption=None):
         # --options="{'s':'1','se':'2'}"
-        command.append(id)
         if userOption != None:
             options = ast.literal_eval(userOption)
             for option in options.items():
                 command.append(option[0])
                 command.append(option[1])
-        return command
+            return command
+                
+        elif userOption == None: 
+            return command
     
-    def listContainers(self,command,containers):
-        containers = ast.literal_eval(containers)
-        for container in containers:
-            command.append(container)
-        return command
+    
+    # def listContainers(self,command,containers):
+    #     containers = ast.literal_eval(containers)
+    #     for container in containers:
+    #         command.append(container)
+    #     return command
     

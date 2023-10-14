@@ -5,10 +5,15 @@ import ast
 from lib.User import User
 from lib.RunCommand import RunCommand
 from lib.Container import Container
-container  = Container()
+Container  = Container()
 run = RunCommand()
 user = User()
+
 class ContainerAction:
+    def __init__(self,containerOutputData=None):
+        self.containerOutputData = {}
+        
+        
     def CreateContainer(self,name,image,options,mode,whichPlace):
         if options != None:
             options_str = container.UserContainerOption(options)
@@ -29,109 +34,62 @@ class ContainerAction:
                 command = f"docker container create --name {name} {image}"
                 # command = f"['docker','container','create','--name','{name}','{mode}','{image}','{whichPlace}']"
                 run.Run_Command(command)
-                
-    def ContainerStop(self,id,options=None):
-        # TODO: python app.py Container stop --name="Sridhar" --options="{'s':'1','se':'2'}"
-        command = ["docker", "container","stop"]
-        if options:
-            # for constructing a docker container stop command
-            stopContainerCommand = container.UserContainerOptionCommand(command,id,options)
-            result = subprocess.run(stopContainerCommand, capture_output=True, text=True)
-            # print(result)
-            if result.returncode == 0:
-                print(stopContainerCommand)
-                return True
-            else:
-                return False
-        else:
-            # for constructing a docker container stop command
-            stopContainerCommand = container.UserContainerOptionCommand(command,id)
-            result = subprocess.run(stopContainerCommand, capture_output=True, text=True)
-            if result.returncode == 0:
-                print(stopContainerCommand)
-                return True
-            else:
-                return False
-        
-    def ContainerRestart(self,id,options=None):
-        # for constructing a docker container restart command
-        # TODO: python app.py Container restart --name="Sridhar" --options="{'s':'1','se':'2'}"
-        command = ["docker", "container","restart"]
-        if options:
-            restartContainerCommand = container.UserContainerOptionCommand(command,id,options)
-            result = subprocess.run(restartContainerCommand, capture_output=True, text=True)
-            if result.returncode == 0:
-                print(restartContainerCommand)
-                return True
-            else:
-                return False
-        else:
-            restartContainerCommand = container.UserContainerOptionCommand(command,id)
-            result = subprocess.run(restartContainerCommand, capture_output=True, text=True)
-            if result.returncode == 0:
-                print(restartContainerCommand)
-                return True
-            else:
-                return False
     
-    def ContainerStart(self,id,options=None):
-        # for constructing a docker container start command
-        # TODO: python app.py Container start --name="Sridhar" --options="{'s':'1','se':'2'}"
-        command = ["docker", "container","start"]
-        if options:
-            startContainerCommand = container.UserContainerOptionCommand(command,id,options)
-            result = subprocess.run(startContainerCommand, capture_output=True, text=True)
-            if result.returncode == 0:
-                print(startContainerCommand)
-                return True
-            else:
-                return False
-        else:
-            startContainerCommand = container.UserContainerOptionCommand(command,id)
-            result = subprocess.run(startContainerCommand, capture_output=True, text=True)
-            if result.returncode == 0:
-                print(startContainerCommand)
-                return True
-            else:
-                return False
+    #   TODO: python app.py Container stop  --containers="['b9fa87a5a0fa56dd9e48','agitated_cartwright']"      
+    def ContainerStop(self,listContainers,userOptions=None):
+        if userOptions != None and listContainers:
+            listContainers = ast.literal_eval(listContainers)
+            for index, container in enumerate(listContainers):
+                command = ["docker", "container","stop"]
+                stopContainer = Container.UserContainerOptionCommand(command,userOptions)
+                stopContainer.append(container)
+                result = subprocess.run(stopContainer, capture_output=True, text=True)
+                if result.returncode == 0:
+                    data = {}
+                    data['name'] = container
+                    data['returncode'] = result.returncode
+                    data['status'] = 'success'
+                    data['error'] = result.stderr
+                    data['stdout'] = result.stdout
+                    self.containerOutputData[index] = data
+                    continue
+                else:
+                    data = {}
+                    data['name'] = container
+                    data['returncode'] = result.returncode
+                    data['status'] = 'fail'
+                    data['error'] = result.stderr
+                    data['stdout'] = result.stdout
+                    self.containerOutputData[index] = data
+                    continue
+                
+            return self.containerOutputData
         
-    def ContainerRemove(self,id,options=None):
-        # for constructing a docker container remove command
-        # TODO: python app.py Container remove --name="Sridhar" --options="{'s':'1','se':'2'}"
-        command = ["docker", "container","rm"]
-        if options:
-            removeContainerCommand = container.UserContainerOptionCommand(command,id,options)
-            result = subprocess.run(removeContainerCommand, capture_output=True, text=True)
-            if result.returncode == 0:
-                print(removeContainerCommand)
-                return True
-            else:
-                return False
         else:
-            removeContainerCommand = container.UserContainerOptionCommand(command,id)
-            result = subprocess.run(removeContainerCommand, capture_output=True, text=True)
-            if result.returncode == 0:
-                print(removeContainerCommand)
-                return True
-            else:
-                return False
-
-
-    def ContainerPause(self,id,containers=None):
-        command = ["docker", "container","pause"]
-        if containers:
-            listContainers = container.listContainers(command,containers)
-            result = subprocess.run(listContainers, capture_output=True, text=True)
-            if result.returncode == 0:
-                print(listContainers)
-                return True
-            else:
-                return False
-        else:
-            pauseContainerCommand = container.UserContainerOptionCommand(command,id)
-            result = subprocess.run(pauseContainerCommand, capture_output=True, text=True)
-            if result.returncode == 0:
-                print(pauseContainerCommand)
-                return True
-            else:
-                return False
+            listContainers = ast.literal_eval(listContainers)
+            for index, container in enumerate(listContainers):
+                command = ["docker", "container","stop"]
+                command.append(container)
+                result = subprocess.run(command, capture_output=True, text=True)
+                if result.returncode == 0:
+                    data = {}
+                    data['name'] = container
+                    data['returncode'] = result.returncode
+                    data['status'] = 'success'
+                    data['error'] = result.stderr
+                    data['stdout'] = result.stdout
+                    self.containerOutputData[index] = data
+                    continue
+                else:
+                    data = {}
+                    data['name'] = container
+                    data['returncode'] = result.returncode
+                    data['status'] = 'fail'
+                    data['error'] = result.stderr
+                    data['stdout'] = result.stdout
+                    self.containerOutputData[index] = data
+                    continue
+                
+            return self.containerOutputData
+        
+    
