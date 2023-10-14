@@ -36,11 +36,11 @@ if Arg.hasCommands(['Container']):
             data = ContainerStop(listContainers,userOptions)
             
         elif Arg.hasOptionValue('--containers'):
-            x = 0
             listContainers = Arg.getoptionvalue('--containers')
             data = ContainerStop(listContainers).containerOutputData
-            for index,i in enumerate(data.items()):
-                print((index))
-                print(i[index])
+            print(data)
+            # for index,i in enumerate(data.items()):
+                # print((index))
+                # print(i)
                 
             

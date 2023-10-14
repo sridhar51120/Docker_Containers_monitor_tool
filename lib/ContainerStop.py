@@ -18,7 +18,7 @@ class ContainerStop:
                 stopContainer = Container.UserContainerOptionCommand(self.command,self.userOptions)
                 stopContainer.append(container)
                 result = subprocess.run(stopContainer, capture_output=True, text=True)
-                if result.returncode == 0:
+                if result.stderr != None:
                     data = {}
                     data['name'] = container
                     data['returncode'] = result.returncode
@@ -44,8 +44,9 @@ class ContainerStop:
             for index, container in enumerate(self.listContainers):
                 command = ["docker", "container","stop"]
                 command.append(container)
-                result = subprocess.run(self.command, capture_output=True, text=True)
-                if result.returncode == 0:
+                print(command)
+                result = subprocess.run(command, capture_output=True, text=True)
+                if result.stderr != None:
                     data = {}
                     data['name'] = container
                     data['returncode'] = result.returncode
