@@ -2,44 +2,50 @@ from lib.Argument import Argument
 from lib.Dashboard import Dashboard
 import json
 import os
+import ast
 import sys
 from lib.User import User
 from lib.Docker_ID import Docker_ID
 from lib.ContainerAction import ContainerAction
+from lib.Window import Window
+from lib.Container import Container
+container  = Container()
+window = Window()
+
 
 # TODO: Containers Class
-container = ContainerAction()
+containerAction = ContainerAction()
 user = User()
 Arg = Argument(sys.argv)
 json_file_path = "User/data.json"
 
 # try:
-if Arg.hasCommands(['Container']):
+# if Arg.hasCommands(['Container']):
     # Create A container with (name or ID) with image
     # python app.py Container Create --name=sri --image=sjhfd --options="{'-e':'-er','-f':'fr'}"
     # docker container create --ip6 2001:db8::1 -it my-image /bin/bash
-    if Arg.hasCommands(['Create']):
-        if Arg.hasOptionValue('--name') and Arg.hasOptionValue('--image') or Arg.hasOptionValue('--options'):
-            name = Arg.getoptionvalue('--name')
-            user_id = Docker_ID(name).ContainerId()
-            if user.newUser(name,user_id,json_file_path):
-                constainer_id = user.addUser(name,user_id,json_file_path)
-                image = Arg.getoptionvalue('--image')
-                options = None
-                if Arg.getoptionvalue('--options') != None:
-                    options = Arg.getoptionvalue('--options')
+    # if Arg.hasCommands(['Create']):
+    #     if Arg.hasOptionValue('--name') and Arg.hasOptionValue('--image') or Arg.hasOptionValue('--options'):
+    #         name = Arg.getoptionvalue('--name')
+    #         user_id = Docker_ID(name).ContainerId()
+    #         if user.newUser(name,user_id,json_file_path):
+    #             constainer_id = user.addUser(name,user_id,json_file_path)
+    #             image = Arg.getoptionvalue('--image')
+    #             options = None
+    #             if Arg.getoptionvalue('--options') != None:
+    #                 options = Arg.getoptionvalue('--options')
 
-                if Arg.getoptionvalue('--mode') == "-d":
-                    mode = Arg.getoptionvalue('--mode')
-                    whichPlace = None
-                    container.CreateContainer(constainer_id,image,options,mode,whichPlace)
+    #             if Arg.getoptionvalue('--mode') == "-d":
+    #                 mode = Arg.getoptionvalue('--mode')
+    #                 whichPlace = None
+    #                 container.CreateContainer(constainer_id,image,options,mode,whichPlace)
 
-                if Arg.getoptionvalue('--mode') == "-it" and Arg.hasOptionValue('--where'):
-                    mode = Arg.getoptionvalue('--mode')
-                    whichPlace = Arg.getoptionvalue('--where')
-                    container.CreateContainer(constainer_id,image,options,mode,whichPlace)
-            else:
-                raise Exception("User Name is Already Registered...")
+    #             if Arg.getoptionvalue('--mode') == "-it" and Arg.hasOptionValue('--where'):
+    #                 mode = Arg.getoptionvalue('--mode')
+    #                 whichPlace = Arg.getoptionvalue('--where')
+    #                 container.CreateContainer(constainer_id,image,options,mode,whichPlace)
+    #         else:
+    #             raise Exception("User Name is Already Registered...")
       
     # elif Arg.hasOption(['--list']):
     #     print("list")
@@ -56,141 +62,110 @@ if Arg.hasCommands(['Container']):
     # TODO: if thw User have the Username or Container Id to Do a Container action
     
 
-    try:
-        if user.ContainerId(json_file_path): #TODO: if the Container name or id is given or not 
-            id = user.ContainerId(json_file_path) # get the Container id in User Input
-            # print(f"Container Id ==> {id}")
-            name = user.ContainerName(json_file_path) # get the Container Name
-            # print(f"Container Name ==> {name}")
-            
-            '''
-            Command Usage ==> "python app.py Container --name="Sridhar" stop"
-            Def           ==> for Container Stop 
-            '''
-            if Arg.hasCommands(['stop']):
-                if Arg.hasOptionValue('--options'):
-                    if container.ContainerStop(id,Arg.getoptionvalue('--options')):
-                        print(f"Container {name} [{id}] stoped Succesfully....")
-                else:
-                    if container.ContainerStop(id):
-                        print(f"Container {name} [{id}] stoped Successfully....")
-                        
-            if Arg.hasCommands(['restart']):
-                if Arg.hasOptionValue('--options'):
-                    if container.ContainerRestart(id,Arg.getoptionvalue('--options')):
-                        print(f"Container {name} Restarted Succesfully....")
-                else:
-                    if container.ContainerRestart(id):
-                        print(f"Container {name} Restarted Successfully....")
-                        
-                        
+# try:
+if container.ContainerId(json_file_path): #TODO: if the Container name or id is given or not 
+    id = container.ContainerId(json_file_path) # get the Container id in User Input
+    print(f"Container Id ==> {id}")
+    name = container.ContainerName(json_file_path) # get the Container Name
+    print(f"Container Name ==> {name}")
+    
+    
+    if Arg.hasCommands(['stop']):
+        '''
+        Command Usage : python app.py Container < {--name=ContainerName/--id=ContainerID} > stop 
+        Options       :  
+                        --options="{ContainerOptions}"  
+                                Options Format ==> < --options="{'s':'1','se':'2'}" >
+        '''
+        if Arg.hasOptionValue('--options'):
+            if containerAction.ContainerStop(id,Arg.getoptionvalue('--options')):
+                print(window.showInfoMessage(f"Container {name} [{id}] stoped Succesfully...."))
+            else:
+                print(window.showErrorMessage(f"User Action ==> Container stoped Failed... --> ID = [{id}] and Name = {name}"))
+                
         else:
-            raise Exception("Contianer Name or Container Id is not Available...")
-    
-        
-    except Exception as e:
-        print(e)
-    
-    
-#     # TODO: for Cotainer Restart
-#     elif Arg.hasOptionValue('--name') and Arg.hasCommands(['restart']):
-#         pass
-    
-    
-#     # TODO: for container Remove
-#     elif Arg.hasOptionValue('--name') and Arg.hasCommands(['remove']):
-#         pass
-    
-    
-#     # TODO: for Contaienr Exec
-#     elif Arg.hasOptionValue('--name') and Arg.hasCommands(['exec']):
-#         pass
-    
-    
-#     # TODO: for Container export
-#     elif Arg.hasOptionValue('--name') and Arg.hasCommands(['export']):
-#         pass
-    
-    
-#     # TODO: for container inspect
-#     elif Arg.hasOptionValue('--name') and Arg.hasCommands(['inspect']):
-#         pass
-    
-    
-#     # TODO: for container kill
-#     elif Arg.hasOptionValue('--name') and Arg.hasCommands(['kill']):
-#         pass
-    
-    
-#     # TODO: for container logs
-#     elif Arg.hasOptionValue('--name') and Arg.hasCommands(['logs']):
-#         pass
-    
-    
-#     # TODO: for container ls
-#     elif Arg.hasOptionValue('--name') and Arg.hasCommands(['ls']):
-#         pass
+            if containerAction.ContainerStop(id):
+                print(window.showInfoMessage(f"Container {name} [{id}] stoped Successfully...."))
+            else:
+                print(window.showErrorMessage(f"User Action ==> Container stoped Failed... --> ID = [{id}] and Name = {name}"))
+                
+    if Arg.hasCommands(['restart']):
+        '''
+        Command Usage : python app.py Container < {--name=ContainerName/--id=ContainerID} > restart
+        Options       :  
+                        --options="{ContainerOptions}"  
+                                Options Format ==> < --options="{'s':'1','se':'2'}" >
+        '''
+        if Arg.hasOptionValue('--options'):
+            if containerAction.ContainerRestart(id,Arg.getoptionvalue('--options')):
+                print(window.showInfoMessage(f"Container {name} [{id}] restart Succesfully...."))
+            else:
+                print(window.showErrorMessage(f"User Action ==> Container restart Failed... --> ID = [{id}] and Name = {name}"))
+        else:
+            if containerAction.ContainerRestart(id):
+                print(window.showInfoMessage(f"Container {name} [{id}] restart Successfully....")) 
+            else:
+                print(window.showErrorMessage(f"User Action ==> Container restart Failed... --> ID = [{id}] and Name = {name}"))
+                
+    if Arg.hasCommands(['start']):
+        '''
+        Command Usage : python app.py Container < {--name=ContainerName/--id=ContainerID} > start
+        Options       :  
+                        --options="{ContainerOptions}"  
+                                Options Format ==> < --options="{'s':'1','se':'2'}" >
+        '''
+        if Arg.hasOptionValue('--options'):
+            if containerAction.ContainerStart(id,Arg.getoptionvalue('--options')):
+                print(window.showInfoMessage(f"Container {name} [{id}] start Succesfully...."))
+            else:
+                print(window.showErrorMessage(f"User Action ==> Container start Failed... --> ID = [{id}] and Name = {name}"))
+        else:
+            if containerAction.ContainerStart(id):
+                print(window.showInfoMessage(f"Container {name} [{id}] start Successfully...."))   
+            else:
+                print(window.showErrorMessage(f"User Action ==> Container start Failed... --> ID = [{id}] and Name = {name}")) 
+                
+    if Arg.hasCommands(['remove']):
+        '''
+        Command Usage : python app.py Container < {--name=ContainerName/--id=ContainerID} > remove
+        Options       :  
+                        --options="{ContainerOptions}"  
+                                Options Format ==> < --options="{'s':'1','se':'2'}" >
+        '''
+        if Arg.hasOptionValue('--options'):
+            if containerAction.ContainerRemove(id,Arg.getoptionvalue('--options')):
+                print(window.showInfoMessage(f"Container {name} [{id}] remove Succesfully...."))
+            else:
+                print(window.showErrorMessage(f"User Action ==> Container remove Failed... --> ID = [{id}] and Name = {name}"))
+        else:
+            if containerAction.ContainerRemove(id):
+                print(window.showInfoMessage(f"Container {name} [{id}] remove Successfully...."))   
+            else:
+                print(window.showErrorMessage(f"User Action ==> Container remove Failed... --> ID = [{id}] and Name = {name}"))  
 
-#     # TODO: for Container pause
-#     elif Arg.hasOptionValue('--name') and Arg.hasCommands(['pause']):
-#         pass
-    
-#     # TODO: for port mapping
-#     elif Arg.hasOptionValue('--name') and Arg.hasCommands(['port']):
-#         pass
-    
-#     # TODO: for Container Prune
-#     elif Arg.hasOptionValue('--name') and Arg.hasCommands(['prune']):
-#         pass
-    
-#     # TODO: for Container rename
-#     elif Arg.hasOptionValue('--name') and Arg.hasCommands(['rename']):
-#         pass
-    
-#     # TODO: for container restart
-#     elif Arg.hasOptionValue('--name') and Arg.hasCommands(['restart']):
-#         pass
-    
-#     # TODO: for container run
-#     elif Arg.hasOptionValue('--name') and Arg.hasCommands(['run']):
-#         pass
-    
-#     # TODO: for container run
-#     elif Arg.hasOptionValue('--name') and Arg.hasCommands(['run']):
-#         pass    
-    
-#     # TODO: for container stats
-#     elif Arg.hasOptionValue('--name') and Arg.hasCommands(['stats']):
-#         pass 
-    
-#     # TODO: for container Start
-#     elif Arg.hasOptionValue('--name') and Arg.hasCommands(['start']):
-#         pass       
-    
-#     # TODO: for contaienr stop
-#     elif Arg.hasOptionValue('--name') and Arg.hasCommands(['stop']):
-#         pass 
-    
-#     # TODO: for container top
-#     elif Arg.hasOptionValue('--name') and Arg.hasCommands(['top']):
-#         pass  
-    
-#     # TODO: for container unpause
-#     elif Arg.hasOptionValue('--name') and Arg.hasCommands(['unpause']):
-#         pass 
-    
-#     # TODO: for cotainer update
-#     elif Arg.hasOptionValue('--name') and Arg.hasCommands(['update']):
-#         pass  
-    
-#     # TODO: for cotainer wait
-#     elif Arg.hasOptionValue('--name') and Arg.hasCommands(['wait']):
-#         pass  
-    
-# # except:
-# #     print("Error")
-
-
-# # Dashboard = Dashboard("sridhar")
-# # print(Dashboard.ContainerInfo())
-
+# TODO: python app.py Container pause --name="Sridhar"  or   python app.py Container pause --containers="[]"         
+if Arg.hasCommands(['pause']):
+        '''
+        Command Usage : python app.py Container < {--name=ContainerName/--id=ContainerID} > pause
+        Options       :  
+                        --containers="['container1','container2'...]"  
+                                Options Format ==> < --containers="['container1','container2'...]" >
+        '''
+        if Arg.hasOptionValue('--containers'):
+            if containerAction.ContainerPause(id,Arg.getoptionvalue('--containers')):
+                containers = Arg.getoptionvalue('--containers')
+                list_containers = ast.literal_eval(containers)
+                for container in list_containers:
+                    print(window.showInfoMessage(f"Container {container} paused Succesfully...."))
+            else:
+                print(window.showErrorMessage(f"User Action ==> Container paused Failed... --> ID = [{id}] and Name = {name}"))
+        else:
+            if containerAction.ContainerPause(id):
+                print(window.showInfoMessage(f"Container {name} [{id}] paused Successfully...."))   
+            else:
+                print(window.showErrorMessage(f"User Action ==> Container paused Failed... --> ID = [{id}] and Name = {name}"))  
+     
+                          
+else:
+    print(window.showWarningMessage("Username is Not Registered..Please check your Container Name"))
+    # raise Exception("Contianer Name or Container Id is not Available...")

@@ -29,5 +29,16 @@ usr = User()
 #     if data[1] == value:
 #         print(data[0])
 
+import ast
+
+input_str = "['container1', 'container2']"
+container_list = ast.literal_eval(input_str)
+
+print(container_list)
+for i in container_list:
+    print(i)
+
+
+
 
 
