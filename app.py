@@ -8,6 +8,7 @@ from lib.User import User
 from lib.Docker_ID import Docker_ID
 from lib.ContainerAction import ContainerAction
 from lib.ContainerStop import ContainerStop
+from lib.ContainerCreate import ContainerCreate
 from lib.Window import Window
 Arg = Argument(sys.argv)
 from lib.Container import Container
@@ -29,7 +30,6 @@ if Arg.hasCommands(['Container']):
                             Options Format ==> < --containers="['container1','container2'...]" >
     '''
     if Arg.hasCommands(['stop']):
-        
         if Arg.hasOptionValue('--options') and Arg.hasOptionValue('--containers'):
             userOptions = Arg.getoptionvalue('--options')
             listContainers = Arg.getoptionvalue('--containers')
@@ -38,9 +38,55 @@ if Arg.hasCommands(['Container']):
         elif Arg.hasOptionValue('--containers'):
             listContainers = Arg.getoptionvalue('--containers')
             data = ContainerStop(listContainers).containerOutputData
+            for key, value in data.items():
+                status = value['status']
+                name = value['name']
+                if status == 'success':
+                    window.showInfoMessage(f'The container {name} has been successfully taken away')
+                else:
+                    window.showErrorMessage(f'The container {name} has been failed taken away')
+                    
+                    
+    if Arg.hasCommands(['create']):
+        if Arg.hasOptionValue('--options') and Arg.hasOptionValue('--containers') and Arg.hasOptionValue('--image') and Arg.hasOptionValue('--mode'):
+            image = Arg.getoptionvalue('--image')
+            mode = Arg.getoptionvalue('--mode')
+            options = Arg.getoptionvalue('--options')
+            listContainers = Arg.getoptionvalue('--containers')
+            data = ContainerCreate(listContainers,image,mode,options).containerOutputData
             print(data)
-            # for index,i in enumerate(data.items()):
-                # print((index))
-                # print(i)
+            # for key, value in data.items():
+            #     status = value['status']
+            #     name = value['name']
+            #     isAlreadyUser = value['isalreadyuser']
+            #     if isAlreadyUser == 'no':
+            #         if status == 'success' and value['error'] == None:
+            #             window.showInfoMessage(f'The container {name} has been successfully created..')  
+            #         else:
+            #             window.showErrorMessage(f'The container {name} has been failed created..')
+            #     else:
+            #         window.showErrorMessage(f'The container {name} has been failed created.. because already a Registered User')
+                
+        
+        elif Arg.hasOptionValue('--containers') and Arg.hasOptionValue('--image') and Arg.hasOptionValue('--mode'):
+            image = Arg.getoptionvalue('--image')
+            mode = Arg.getoptionvalue('--mode')
+            listContainers = Arg.getoptionvalue('--containers')
+            # print(listContainers)
+            data = ContainerCreate(listContainers,image,mode).containerOutputData
+            # print(data)
+            for key, value in data.items():
+                status = value['status']
+                name = value['name']
+                isAlreadyUser = value['isalreadyuser']
+                if isAlreadyUser == 'no':
+                    if status == 'success' and value['error'] == None:
+                        window.showInfoMessage(f'The container {name} has been successfully created..')  
+                    else:
+                        window.showErrorMessage(f'The container {name} has been failed created..')
+                else:
+                    window.showErrorMessage(f'The container {name} has been failed created.. because already a Registered User')
+                
+                    
                 
             

@@ -16,6 +16,10 @@ class ContainerStop:
             self.listContainers = ast.literal_eval(self.listContainers)
             for index, container in enumerate(self.listContainers):
                 stopContainer = Container.UserContainerOptionCommand(self.command,self.userOptions)
+                # TODO: this command is costucted only Id but if the user Use's Container Name
+                # TODO: Construct with username and id
+                # TODO: if the Container is Available or not
+                # TODO: if not Append thd id to => self.containerOutputData[index] = data
                 stopContainer.append(container)
                 result = subprocess.run(stopContainer, capture_output=True, text=True)
                 if result.stderr != None:

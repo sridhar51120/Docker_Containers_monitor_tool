@@ -27,7 +27,6 @@ class Container:
         except Exception as e:
             print(f'Exception {e}')
             
-
     def ContainerName(self,json_file_path):
         try:
             if Arg.hasOptionValue('--name'):
