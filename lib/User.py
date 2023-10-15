@@ -1,15 +1,15 @@
 import json
 
 class User:
-    def newUser(self,name,id, json_file_path):
+    def newUser(self,name,json_file_path):
         try:
             with open(json_file_path, 'r') as file:
                 fileData = json.load(file)
             file.close()
             if name in fileData:
-                return True
+                # return True
                 # TODO: Change the User Privillages 
-                # return False
+                return False
             else:
                 return True
         except json.JSONDecodeError as e:

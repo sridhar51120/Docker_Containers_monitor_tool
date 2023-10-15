@@ -1,0 +1,2 @@
+class ContainerPrune:
+    pass

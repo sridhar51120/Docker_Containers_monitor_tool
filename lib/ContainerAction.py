@@ -3,10 +3,9 @@ import subprocess
 import json
 import ast
 from lib.User import User
-from lib.RunCommand import RunCommand
 from lib.Container import Container
 Container  = Container()
-run = RunCommand()
+
 user = User()
 
 class ContainerAction:

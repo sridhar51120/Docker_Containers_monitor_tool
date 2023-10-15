@@ -50,10 +50,9 @@ class Container:
         elif userOption == None: 
             return command
     
-    
-    # def listContainers(self,command,containers):
-    #     containers = ast.literal_eval(containers)
-    #     for container in containers:
-    #         command.append(container)
-    #     return command
-    
+    def createLogFile(self,logs,filename):
+        filename = filename + "_logs_file.txt"
+        with open(filename, "w") as text_file:
+            text_file.write(logs)
+            
+        return True

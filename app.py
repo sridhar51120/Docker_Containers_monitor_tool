@@ -9,6 +9,14 @@ from lib.Docker_ID import Docker_ID
 from lib.ContainerAction import ContainerAction
 from lib.ContainerStop import ContainerStop
 from lib.ContainerCreate import ContainerCreate
+from lib.ContainerRestart import ContainerRestart
+from lib.ContainerStart import ContainerStart
+from lib.ContainerRemove import ContainerRemove
+from lib.ContainerPause import ContainerPause
+from lib.ContainerUnPause import ContainerUnPause
+from lib.ContainerKill import ContainerKill
+from lib.ContainerExport import ContainerExport
+from lib.ContainerLogs import ContainerLogs
 from lib.Window import Window
 Arg = Argument(sys.argv)
 from lib.Container import Container
@@ -89,9 +97,11 @@ if Arg.hasCommands(['Container']):
                 isAvailbleContainer = value['isavailblecontainer']
                 if isAvailbleContainer == 'yes':
                     if status == 'success':
-                        window.showInfoMessage(f'The container {name} has been successfully taken away')
+                        print(f'The container {name} has been successfully taken away')
+                        # window.showInfoMessage(f'The container {name} has been successfully taken away')
                     else:
-                        window.showErrorMessage(f'The container {name} has been failed taken away')
+                        print(f'The container {name} has been failed taken away')
+                        # window.showErrorMessage(f'The container {name} has been failed taken away')
                 else:
                     print(f'Container {name} is not Available')
                 
@@ -102,30 +112,310 @@ if Arg.hasCommands(['Container']):
             for key, value in data.items():
                 status = value['status']
                 name = value['name']
-                if status == 'success':
-                    window.showInfoMessage(f'The container {name} has been successfully taken away')
+                isAvailbleContainer = value['isavailblecontainer']
+                if isAvailbleContainer == 'yes':
+                    if status == 'success':
+                        print(f'The container {name} has been successfully taken away')
+                        # window.showInfoMessage(f'The container {name} has been successfully taken away')
+                    else:
+                        print(f'The container {name} has been failed taken away')
+                        # window.showErrorMessage(f'The container {name} has been failed taken away')
                 else:
-                    window.showErrorMessage(f'The container {name} has been failed taken away')
-
+                    print(f'Container {name} is not Available')
+             
+             
     if Arg.hasCommands(['restart']):
         if Arg.hasOptionValue('--options') and Arg.hasOptionValue('--containers'):
             userOptions = Arg.getoptionvalue('--options')
             listContainers = Arg.getoptionvalue('--containers')
-            data = ContainerRestart(listContainers,userOptions)
+            data = ContainerRestart(listContainers,userOptions).containerOutputData
+            for key, value in data.items():
+                status = value['status']
+                name = value['name']
+                isAvailbleContainer = value['isavailblecontainer']
+                if isAvailbleContainer == 'yes':
+                    if status == 'success':
+                        print(f'The container {name} has been successfully restarted...')
+                        # window.showInfoMessage(f'The container {name} has been successfully restarted...')
+                    else:
+                        print(f'The container {name} has been failed restarted...')
+                        # window.showErrorMessage(f'The container {name} has been failed restarted...')
+                else:
+                    print(f'Container {name} is not Available')
             
         elif Arg.hasOptionValue('--containers'):
             listContainers = Arg.getoptionvalue('--containers')
             data = ContainerRestart(listContainers).containerOutputData
             for key, value in data.items():
+                # print(value['isavailblecontainer'])
                 status = value['status']
                 name = value['name']
-                if status == 'success':
-                    window.showInfoMessage(f'The container {name} has been successfully taken away')
+                isAvailbleContainer = value['isavailblecontainer']
+                if isAvailbleContainer == 'yes':
+                    if status == 'success':
+                        print(f'The container {name} has been successfully restarted...')
+                        # window.showInfoMessage(f'The container {name} has been successfully restarted...')
+                    else:
+                        print(f'The container {name} has been failed restarted...')
+                        # window.showErrorMessage(f'The container {name} has been failed restarted...')
                 else:
-                    window.showErrorMessage(f'The container {name} has been failed taken away')
-                    
-                    
-      
-                    
+                    print(f'Container {name} is not Available')
                 
+    if Arg.hasCommands(['start']):
+        if Arg.hasOptionValue('--options') and Arg.hasOptionValue('--containers'):
+            userOptions = Arg.getoptionvalue('--options')
+            listContainers = Arg.getoptionvalue('--containers')
+            data = ContainerStart(listContainers,userOptions).containerOutputData
+            # print(data)
+            for key, value in data.items():
+                status = value['status']
+                name = value['name']
+                isAvailbleContainer = value['isavailblecontainer']
+                if isAvailbleContainer == 'yes':
+                    if status == 'success':
+                        print(f'The container {name} has been successfully started...')
+                        # window.showInfoMessage(f'The container {name} has been successfully started...')
+                    else:
+                        print(f'The container {name} has been failed started...')
+                        # window.showErrorMessage(f'The container {name} has been failed started...')
+                else:
+                    print(f'Container {name} is not Available')
             
+        elif Arg.hasOptionValue('--containers'):
+            listContainers = Arg.getoptionvalue('--containers')
+            data = ContainerStart(listContainers).containerOutputData
+            # print(data)
+            for key, value in data.items():
+                # print(value['isavailblecontainer'])
+                status = value['status']
+                name = value['name']
+                isAvailbleContainer = value['isavailblecontainer']
+                if isAvailbleContainer == 'yes':
+                    if status == 'success':
+                        print(f'The container {name} has been successfully started...')
+                        # window.showInfoMessage(f'The container {name} has been successfully started...')
+                    else:
+                        print(f'The container {name} has been failed started...')
+                        # window.showErrorMessage(f'The container {name} has been failed started...')
+                else:
+                    print(f'Container {name} is not Available')
+                
+    if Arg.hasCommands(['remove']):
+        if Arg.hasOptionValue('--options') and Arg.hasOptionValue('--containers'):
+            userOptions = Arg.getoptionvalue('--options')
+            listContainers = Arg.getoptionvalue('--containers')
+            data = ContainerRemove(listContainers,userOptions).containerOutputData
+            # print(data)
+            for key, value in data.items():
+                status = value['status']
+                name = value['name']
+                isAvailbleContainer = value['isavailblecontainer']
+                if isAvailbleContainer == 'yes':
+                    if status == 'success':
+                        print(f'The container {name} has been successfully removed...')
+                        # window.showInfoMessage(f'The container {name} has been successfully removed...')
+                    else:
+                        print(f'The container {name} has been failed removed...')
+                        # window.showErrorMessage(f'The container {name} has been failed removed...')
+                else:
+                    print(f'Container {name} is not Available')
+            
+        elif Arg.hasOptionValue('--containers'):
+            listContainers = Arg.getoptionvalue('--containers')
+            data = ContainerRemove(listContainers).containerOutputData
+            # print(data)
+            for key, value in data.items():
+                # print(value['isavailblecontainer'])
+                status = value['status']
+                name = value['name']
+                isAvailbleContainer = value['isavailblecontainer']
+                if isAvailbleContainer == 'yes':
+                    if status == 'success':
+                        print(f'The container {name} has been successfully removed...')
+                        # window.showInfoMessage(f'The container {name} has been successfully removed...')
+                    else:
+                        print(f'The container {name} has been failed removed...')
+                        # window.showErrorMessage(f'The container {name} has been failed removed...')
+                else:
+                    print(f'Container {name} is not Available')      
+                    
+    if Arg.hasCommands(['pause']):
+        if Arg.hasOptionValue('--options') and Arg.hasOptionValue('--containers'):
+            userOptions = Arg.getoptionvalue('--options')
+            listContainers = Arg.getoptionvalue('--containers')
+            data = ContainerPause(listContainers,userOptions).containerOutputData
+            # print(data)
+            for key, value in data.items():
+                status = value['status']
+                name = value['name']
+                isAvailbleContainer = value['isavailblecontainer']
+                if isAvailbleContainer == 'yes':
+                    if status == 'success':
+                        print(f'The container {name} has been successfully paused...')
+                        # window.showInfoMessage(f'The container {name} has been successfully paused...')
+                    else:
+                        print(f'The container {name} has been failed paused...')
+                        # window.showErrorMessage(f'The container {name} has been failed paused...')
+                else:
+                    print(f'Container {name} is not Available')
+            
+        elif Arg.hasOptionValue('--containers'):
+            listContainers = Arg.getoptionvalue('--containers')
+            data = ContainerPause(listContainers).containerOutputData
+            # print(data)
+            for key, value in data.items():
+                # print(value['isavailblecontainer'])
+                status = value['status']
+                name = value['name']
+                isAvailbleContainer = value['isavailblecontainer']
+                if isAvailbleContainer == 'yes':
+                    if status == 'success':
+                        print(f'The container {name} has been successfully paused...')
+                        # window.showInfoMessage(f'The container {name} has been successfully paused...')
+                    else:
+                        print(f'The container {name} has been failed paused...')
+                        # window.showErrorMessage(f'The container {name} has been failed paused...')
+                else:
+                    print(f'Container {name} is not Available')       
+                    
+    if Arg.hasCommands(['unpause']):
+        if Arg.hasOptionValue('--options') and Arg.hasOptionValue('--containers'):
+            userOptions = Arg.getoptionvalue('--options')
+            listContainers = Arg.getoptionvalue('--containers')
+            data = ContainerUnPause(listContainers,userOptions).containerOutputData
+            # print(data)
+            for key, value in data.items():
+                status = value['status']
+                name = value['name']
+                isAvailbleContainer = value['isavailblecontainer']
+                if isAvailbleContainer == 'yes':
+                    if status == 'success':
+                        print(f'The container {name} has been successfully unpaused...')
+                        # window.showInfoMessage(f'The container {name} has been successfully unpaused...')
+                    else:
+                        print(f'The container {name} has been failed unpaused...')
+                        # window.showErrorMessage(f'The container {name} has been failed unpaused...')
+                else:
+                    print(f'Container {name} is not Available')
+            
+        elif Arg.hasOptionValue('--containers'):
+            listContainers = Arg.getoptionvalue('--containers')
+            data = ContainerUnPause(listContainers).containerOutputData
+            # print(data)
+            for key, value in data.items():
+                # print(value['isavailblecontainer'])
+                status = value['status']
+                name = value['name']
+                isAvailbleContainer = value['isavailblecontainer']
+                if isAvailbleContainer == 'yes':
+                    if status == 'success':
+                        print(f'The container {name} has been successfully unpaused...')
+                        # window.showInfoMessage(f'The container {name} has been successfully unpaused...')
+                    else:
+                        print(f'The container {name} has been failed unpaused...')
+                        # window.showErrorMessage(f'The container {name} has been failed unpaused...')
+                else:
+                    print(f'Container {name} is not Available') 
+                    
+    if Arg.hasCommands(['export']):
+        if Arg.hasOptionValue('--containers'):
+            listContainers = Arg.getoptionvalue('--containers')
+            data = ContainerExport(listContainers).containerOutputData
+            print(data)
+            for key, value in data.items():
+                # print(value['isavailblecontainer'])
+                status = value['status']
+                name = value['name']
+                isAvailbleContainer = value['isavailblecontainer']
+                if isAvailbleContainer == 'yes':
+                    if status == 'success':
+                        print(f'The container {name} has been successfully exported...')
+                        # window.showInfoMessage(f'The container {name} has been successfully exported...')
+                    else:
+                        print(f'The container {name} has been failed exported...')
+                        # window.showErrorMessage(f'The container {name} has been failed exported...')
+                else:
+                    print(f'Container {name} is not Available')   
+                    
+    if Arg.hasCommands(['logs']):
+        if Arg.hasOptionValue('--containers'):
+            if Arg.hasOption(['--output']):
+                listContainers = Arg.getoptionvalue('--containers')
+                data = ContainerLogs(listContainers,userOptions="output").containerOutputData
+                # print(data)
+                for key, value in data.items():
+                    status = value['status']
+                    name = value['name']
+                    isAvailbleContainer = value['isavailblecontainer']
+                    if isAvailbleContainer == 'yes':
+                        if status == 'success':
+                            print(f"The container {name} and Data ::\n",value['error'])
+                        else:
+                            print(f'The container {name} has been failed fetched the logs....')
+                    else:
+                        print(f'Container {name} is not Available')
+
+            elif Arg.hasOption(['--file']):
+                listContainers = Arg.getoptionvalue('--containers')
+                data = ContainerLogs(listContainers,userOptions="file").containerOutputData
+                # print(data)
+                for key, value in data.items():
+                    status = value['status']
+                    name = value['name']
+                    isAvailbleContainer = value['isavailblecontainer']
+                    if isAvailbleContainer == 'yes':
+                        if value['isfilecreated'] :
+                            print(f'Log file {value["id"]}_logs_file.txt is Successfully created')
+                        else:
+                            print(f'Log file {value["id"]}_logs_file.txt is failed to create')
+                    else:
+                        print(f'Container {name} is not Available')      
+                    
+    if Arg.hasCommands(['kill']):
+        if Arg.hasOptionValue('--options') and Arg.hasOptionValue('--containers'):
+            userOptions = Arg.getoptionvalue('--options')
+            listContainers = Arg.getoptionvalue('--containers')
+            data = ContainerKill(listContainers,userOptions).containerOutputData
+            # print(data)
+            for key, value in data.items():
+                status = value['status']
+                name = value['name']
+                isAvailbleContainer = value['isavailblecontainer']
+                if isAvailbleContainer == 'yes':
+                    if status == 'success':
+                        print(f'The container {name} has been successfully killed....')
+                        # window.showInfoMessage(f'The container {name} has been successfully killed....')
+                    else:
+                        print(f'The container {name} has been failed killed....')
+                        # window.showErrorMessage(f'The container {name} has been failed killed....')
+                else:
+                    print(f'Container {name} is not Available')
+            
+        elif Arg.hasOptionValue('--containers'):
+            listContainers = Arg.getoptionvalue('--containers')
+            data = ContainerKill(listContainers).containerOutputData
+            # print(data)
+            for key, value in data.items():
+                # print(value['isavailblecontainer'])
+                status = value['status']
+                name = value['name']
+                isAvailbleContainer = value['isavailblecontainer']
+                if isAvailbleContainer == 'yes':
+                    if status == 'success':
+                        print(f'The container {name} has been successfully killed....')
+                        # window.showInfoMessage(f'The container {name} has been successfully killed....')
+                    else:
+                        print(f'The container {name} has been failed killed....')
+                        # window.showErrorMessage(f'The container {name} has been failed killed....')
+                else:
+                    print(f'Container {name} is not Available')  
+
+    if Arg.hasCommands(['kill']):
+        if Arg.hasOptionValue('--containers'):
+            if Arg.hasOption(['--stopped']):
+                pass
+            elif Arg.hasOption(['--all']):
+                pass
+            elif Arg.hasOption(['--running']):
+                pass
+
