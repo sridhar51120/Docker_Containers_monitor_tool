@@ -74,7 +74,7 @@ class ContainerLogs:
                         # print(command)
                         result = subprocess.run(command, capture_output=True, text=True)
                         if result.stderr != None:
-                            if Container.createLogFile(f"{result.stderr}",id):
+                            if Container.CovertOutputTextFile(f"{result.stderr}",id,'logs'):
                                 data = {}
                                 data['isavailblecontainer'] = 'yes'
                                 data['name'] = container

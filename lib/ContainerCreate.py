@@ -25,7 +25,7 @@ class ContainerCreate:
             for index, container in enumerate(listContainers):
                 id = Docker_ID(container).ContainerId()
                 # Construct A User
-                if user.newUser(container,id,self.json_file_path):
+                if user.newUser(container,self.json_file_path):
                     user.addUser(container,id,self.json_file_path)
                     command = ["docker","container","create"]
                     command.append(id)

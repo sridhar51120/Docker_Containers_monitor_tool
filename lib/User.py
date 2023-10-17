@@ -7,7 +7,7 @@ class User:
                 fileData = json.load(file)
             file.close()
             if name in fileData:
-                # return True
+                # return fileData[name]
                 # TODO: Change the User Privillages 
                 return False
             else:
@@ -28,7 +28,7 @@ class User:
             with open(json_file_path, 'w') as file:
                 file.write(data)
                 file.close()
-                return id
+                return (name,id)
             
         except json.JSONDecodeError as e:
             print(f"Invalid JSON format in the JSON file: {json_file_path}")

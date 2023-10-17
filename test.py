@@ -1,6 +1,6 @@
 # import subprocess
-from lib.User import User
-usr = User()
+# from lib.User import User
+# usr = User()
 
 # command = "docker images"
 
@@ -38,14 +38,23 @@ usr = User()
 # for i in container_list:
 #     print(i)
 
-text_to_save = "This is the text that will be saved in the text file."
-file_name = "output.txt"
-with open(file_name, "w") as text_file:
-    text_file.write(text_to_save)
+# text_to_save = "This is the text that will be saved in the text file."
+# file_name = "output.txt"
+# with open(file_name, "w") as text_file:
+#     text_file.write(text_to_save)
 
-print(f'Text has been saved to {file_name}')
-
-
+# print(f'Text has been saved to {file_name}')
 
 
+
+import json
+
+with open('User/data.json', 'r') as file:
+    data = json.load(file)
+
+if "sridha" in data:
+    del data["sridha"]
+
+with open('User/data.json', 'w') as file:
+    json.dump(data, file, indent=4)
 

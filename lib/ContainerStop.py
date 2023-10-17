@@ -20,8 +20,8 @@ class ContainerStop:
                 containerStopCommand = Container.UserContainerOptionCommand(self.command,self.userOptions)
                 
                 if not User().newUser(container,self.json_file_path):
-                    if Container.ContainerId(container):
-                        id = Container.ContainerId(container)
+                    if Container.ContainerId(container,self.json_file_path):
+                        id = Container.ContainerId(container,self.json_file_path)
                         containerStopCommand.append(id)
                         result = subprocess.run(containerStopCommand, capture_output=True, text=True)
                         if result.stderr != None:
@@ -70,9 +70,10 @@ class ContainerStop:
             for index, container in enumerate(self.listContainers):
                 command = ["docker", "container","stop"]
                 if not User().newUser(container,self.json_file_path):
-                    if Container.ContainerId(container):
-                        id = Container.ContainerId(container)
-                        command.append(id)                        
+                    if Container.ContainerId(container,self.json_file_path):
+                        id = Container.ContainerId(container,self.json_file_path)
+                        command.append(id)
+                        result = subprocess.run(command, capture_output=True, text=True)                        
                         if result.stderr != None:
                             data = {}
                             data['isavailblecontainer'] = 'yes'

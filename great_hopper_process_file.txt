@@ -1,0 +1,5 @@
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                8342                8321                0                   06:49               ?                   00:00:00            httpd -DFOREGROUND
+www-data            8364                8342                0                   06:49               ?                   00:00:00            httpd -DFOREGROUND
+www-data            8365                8342                0                   06:49               ?                   00:00:00            httpd -DFOREGROUND
+www-data            8366                8342                0                   06:49               ?                   00:00:00            httpd -DFOREGROUND
