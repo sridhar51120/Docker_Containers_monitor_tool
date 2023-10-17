@@ -1,0 +1,11 @@
+README.md
+setup.py
+SampleModule.egg-info/PKG-INFO
+SampleModule.egg-info/SOURCES.txt
+SampleModule.egg-info/dependency_links.txt
+SampleModule.egg-info/entry_points.txt
+SampleModule.egg-info/top_level.txt
+src/__init__.py
+src/app.py
+src/lib/Argument.py
+src/lib/__init__.py

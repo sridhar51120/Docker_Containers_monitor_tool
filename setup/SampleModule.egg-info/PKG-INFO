@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: SampleModule
+Version: 0.0.1
+Summary: This is a Sample Package
+Home-page: https://github.com/sridhard/sample_project
+Author: Sridhar
+Author-email: your@email.com
+License: MIT
+Keywords: python package example
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Description-Content-Type: text/markdown
+
+#### This is sample Python Package
