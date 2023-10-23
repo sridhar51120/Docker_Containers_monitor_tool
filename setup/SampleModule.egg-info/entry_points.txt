@@ -1,2 +1,0 @@
-[console_scripts]
-Endecoder = src.app:main
