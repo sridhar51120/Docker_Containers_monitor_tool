@@ -42,7 +42,21 @@ follow the steps to install python in our system
 go to this website and download the python original in the official website 
 
 >   https://www.python.org/downloads/
-click to download the python and install our system to double click the python software
-<!-- C:> py -m pip install --upgrade pip -->
->   
 
+### Lets Divide into our Project
+
+### Functions are included in our tool
+
+1) Container Create
+2) Container Stop
+3) Container Restart
+4) Container Start
+5) Container remove
+6) Container pause
+7) Container unpause
+8) Container export
+9) Container logs
+10) Container kill
+11) Container prune
+12) Container rename
+13) Container top
