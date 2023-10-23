@@ -10,6 +10,7 @@ Obtain real-time data on CPU usage, memory consumption, disk I/O, and network ac
 Custom Alerts: Define custom alert thresholds and receive notifications when containers exceed specified limits.
 #### Container Management
 Start, Stop, and Restart: Manage container lifecycle with simple commands for starting, stopping, and restarting containers.
+` In this is Can manage 100 to 500 docker containers lifecycle with simple commands for starting,stopping,and restarting operations. `
 #### Create and Remove: 
 Create new containers from images and remove existing containers, offering flexibility in application deployment.
 ### Container Logs
@@ -60,3 +61,11 @@ go to this website and download the python original in the official website
 11) Container prune
 12) Container rename
 13) Container top
+
+
+### Lets go for Our Tool Operations
+
+## `Contaienr Create `
+
+>   python app.py Container create --containers="['container1','container2',....'containerN']  --image="Docker Image Name" 
+>   Optional Arguments  - --options="{'option1Key':'option1Value','option2Key':'option2Value'}
