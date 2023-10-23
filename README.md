@@ -42,7 +42,7 @@ follow the steps to install python in our system
 
 go to this website and download the python original in the official website 
 
->   https://www.python.org/downloads/
+   https://www.python.org/downloads/
 
 ### Lets Divide into our Project
 
@@ -65,95 +65,140 @@ go to this website and download the python original in the official website
 
 ### Lets go for Our Tool Operations
 
-`Container Create `
+### `Container Create `
 
 
->   ```
->   python app.py Container create --containers="['container1','container2',.....'containerN']  --image="Docker Image Name" 
->   
->   ```
->   Optional arguments -  `--options="{'option1Key':'option1Value','option2Key':'option2Value'}`
->   
->   ### Arguments
->   
->   - ` --containers `: specifies the Containers List
->   
->   Example:
->   
->   ```
->   # For Creating one Container
->   
->   --containers="['containerOne']"
->   ```
->   
->   
->   ```
->   
->   # For Creating Multiple Containers
->   
->   --containers="['container1','Container2','Container3'....'ContainerN']"
->   
->   ```
->   
->   - ` --image `: Docker Container Image Name
->   ```
->   
->   --image="<Docker Image Name>"
->   
->   ```
->   - ` --options `: User Options for Creating Docker Containers
->   
->   ```
->   
->   # For One User Options
->   --options="{'Option1Key':'Option1Value'}
->   
->   # For Multiple Uer Options
->   --options="{'Option1Key':'Option1Value','Option2Key':'Option2Value'....}
->   
->   ```
+   ```
+   python app.py Container create --containers="['container1','container2',.....'containerN']  --image="Docker Image Name" 
+   
+   ```
+   Optional arguments -  `--options="{'option1Key':'option1Value','option2Key':'option2Value'}`
+   
+   ### Arguments
+   
+   - ` --containers `: specifies the Containers List
+   
+   Example:
+   
+   ```
+   # For Creating one Container
+   
+   --containers="['containerOne']"
+   ```
+   
+   
+   ```
+   
+   # For Creating Multiple Containers
+   
+   --containers="['container1','Container2','Container3'....'ContainerN']"
+   
+   ```
+   
+   - ` --image `: Docker Container Image Name
+   ```
+   
+   --image="<Docker Image Name>"
+   
+   ```
+   - ` --options `: User Options for Creating Docker Containers
+   
+   ```
+   
+   # For One User Options
+   --options="{'Option1Key':'Option1Value'}
+   
+   # For Multiple Uer Options
+   --options="{'Option1Key':'Option1Value','Option2Key':'Option2Value'....}
+   
+   ```
 
 ---------------------------------------------------------------------------------------------- 
 
-`Container Stop `
+### `Container Stop `
 
->   ```
->   python app.py Container stop --containers="['container1','container2',.....'containerN'] 
->   
->   ```
->   Optional arguments -  `--options="{'option1Key':'option1Value','option2Key':'option2Value'}`
->   
->   ### Arguments
->   
->   - ` --containers `: specifies the Containers List
->   
->   Example:
->   
->   ```
->   # For stopping one Container
->   
->   --containers="['containerOne']"
->   ```
->   
->   
->   ```
->   
->   # For stopping Multiple Containers
->   
->   --containers="['container1','Container2','Container3'....'ContainerN']"
->   
->   ```
->   
->   ```
->   - ` --options `: User Options for stoping Docker Containers
->   
->   ```
->   
->   # For One User Options
->   --options="{'Option1Key':'Option1Value'}
->   
->   # For Multiple Uer Options
->   --options="{'Option1Key':'Option1Value','Option2Key':'Option2Value'....}
->   
->   ```
+   ```
+   python app.py Container stop --containers="['container1','container2',.....'containerN'] 
+   
+   ```
+   Optional arguments -  `--options="{'option1Key':'option1Value','option2Key':'option2Value'}`
+   
+   ### Arguments
+   
+   - ` --containers `: specifies the Containers List
+   
+   Example:
+   
+   ```
+   # For stopping one Container
+   
+   --containers="['containerOne']"
+   ```
+   
+   
+   ```
+   
+   # For stopping Multiple Containers
+   
+   --containers="['container1','Container2','Container3'....'ContainerN']"
+   
+   ```
+   
+   ```
+   - ` --options `: User Options for stoping Docker Containers
+   
+   ```
+   
+   # For One User Options
+   --options="{'Option1Key':'Option1Value'}
+   
+   # For Multiple Uer Options
+   --options="{'Option1Key':'Option1Value','Option2Key':'Option2Value'....}
+   
+   ```
+
+
+---------------------------------------------------------------------------------------------- 
+
+### `Container Restart `
+
+   ```
+   python app.py Container restart --containers="['container1','container2',.....'containerN'] 
+   
+   ```
+   Optional arguments -  `--options="{'option1Key':'option1Value','option2Key':'option2Value'}`
+   
+   ### Arguments
+   
+   - ` --containers `: specifies the Containers List
+   
+   Example:
+   
+   ```
+   # For Restart one Container
+   
+   --containers="['containerOne']"
+   ```
+   
+   
+   ```
+   
+   # For Restart Multiple Containers
+   
+   --containers="['container1','Container2','Container3'....'ContainerN']"
+   
+   ```
+   
+   ```
+   - ` --options `: User Options for Restarting Docker Containers
+   
+   ```
+   
+   # For One User Options
+   --options="{'Option1Key':'Option1Value'}
+   
+   # For Multiple Uer Options
+   --options="{'Option1Key':'Option1Value','Option2Key':'Option2Value'....}
+   
+   ```
 
