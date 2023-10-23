@@ -84,7 +84,9 @@ Example:
 # For Creating one Container
 
 --containers="['containerOne']"
+```
 
+```
 # For Creating Multiple Containers
 
 --containers="['container1','Container2','Container3'....'ContainerN']"
@@ -97,7 +99,7 @@ Example:
 --image="<Docker Image Name>"
 
 ```
-- ` --options `: User Options for Running Docker Containers
+- ` --options `: User Options for Creating Docker Containers
 
 ```
 
