@@ -68,489 +68,395 @@ go to this website and download the python original in the official website
 ### `Container Create `
 
 
-  ```
-   python app.py Container create --containers="['container1','container2',.....'containerN']"  --image="Docker Image Name" 
-   
-   ```
-   Optional arguments -  `--options="{'option1Key':'option1Value','option2Key':'option2Value'}`
-   
-   ### Arguments
-   
-   - ` --containers `: specifies the Containers List
-   
-   Example:
-   
-   ```
-   #### For Creating one Container
-   
-   --containers="['containerOne']"
-   ```
-   
-   
-   ```
-     
-     #### For Creating Multiple Containers
-     
-     --containers="['container1','Container2','Container3'....'ContainerN']"
-     
-     ```
-     
-     - ` --image `: Docker Container Image Name
-     ```
-     
-     --image="<Docker Image Name"
-     
-     ```
-     - ` --options `: User Options for Creating Docker Containers
-     
-     ```
-     
-     #### For One User Options
-     --options="{'Option1Key':'Option1Value'}
-     
-     #### For Multiple User Options
-      --options="{'Option1Key':'Option1Value','Option2Key':'Option2Value'....}
-      
-      ```
+```
+python app.py Container create --containers="['container1','container2',.....'containerN']"  --image="Docker Image Name" 
+ 
+```
+Optional arguments -  `--options="{'option1Key':'option1Value','option2Key':'option2Value'}`
+
+### Arguments
+
+- ` --containers `: specifies the Containers List
+
+Example:
+
+#### For Creating one Container
+
+```
+--containers="['containerOne']"
+```
+
+#### For Creating Multiple Containers
+```
+--containers="['container1','Container2','Container3'....'ContainerN']"
+```
+
+- ` --image `: Docker Container Image Name
+
+```
+--image="<Docker Image Name"
+```
+
+- ` --options `: User Options for Creating Docker Containers
+
+
+#### For User Options
+```
+--options="{'Option1Key':'Option1Value','Option2Key':'Option2Value'....}"
+```
 
 ---------------------------------------------------------------------------------------------- 
 
 ### `Container Stop `
 
-      ```
-      python app.py Container stop --containers="['container1','container2',.....'containerN']" 
-      
-      ```
-      Optional arguments -  `--options="{'option1Key':'option1Value','option2Key':'option2Value'}`
-      
-      ### Arguments
-      
-      - ` --containers `: specifies the Containers List
-      
-      Example:
-      
-      ```
-      #### For stopping one Container
-      
-      --containers="['containerOne']"
-      ```
-      
-      
-      ```
-      
-      #### For stopping Multiple Containers
-      
-      --containers="['container1','Container2','Container3'....'ContainerN']"
-      
-      ```
-      
-      ```
-      - ` --options `: User Options for stoping Docker Containers
-      
-      ```
-      
-      #### For One User Options
-      --options="{'Option1Key':'Option1Value'}
-      
-      #### For Multiple User Options
-      --options="{'Option1Key':'Option1Value','Option2Key':'Option2Value'....}
-      
-      ```
+```
+python app.py Container stop --containers="['container1','container2',.....'containerN']" 
+
+```
+Optional arguments -  `--options="{'option1Key':'option1Value','option2Key':'option2Value'}`
+
+### Arguments
+
+- ` --containers `: specifies the Containers List
+
+Example:
+
+#### For stopping one Container
+```
+--containers="['containerOne']"
+```
+
+
+#### For stopping Multiple Containers
+```
+--containers="['container1','Container2','Container3'....'ContainerN']"
+```
+
+- ` --options `: User Options for stoping Docker Containers
+
+#### For User Options
+--options="{'Option1Key':'Option1Value','Option2Key':'Option2Value'....}"
 
 ---------------------------------------------------------------------------------------------- 
 
-### `Container Restart `
-   
-      ```
-      python app.py Container restart --containers="['container1','container2',.....'containerN']" 
-      
-      ```
-      Optional arguments -  `--options="{'option1Key':'option1Value','option2Key':'option2Value'}`
-      
-      ### Arguments
-      
-      - ` --containers `: specifies the Containers List
-      
-      Example:
-      
-      ```
-      #### For restarting one Container
-      
-      --containers="['containerOne']"
-      ```
-      
-      
-      ```
-      
-      #### For restarting Multiple Containers
-      
-      --containers="['container1','Container2','Container3'....'ContainerN']"
-      
-      ```
-      
-      ```
-      - ` --options `: User Options for restarting Docker Containers
-      
-      ```
-      
-      #### For One User Options
-      --options="{'Option1Key':'Option1Value'}
-      
-      #### For Multiple User Options
-      --options="{'Option1Key':'Option1Value','Option2Key':'Option2Value'....}
-      
-      ```
+### ` Container Restart `
 
+```
+python app.py Container restart --containers="['container1','container2',.....'containerN']" 
+
+```
+Optional arguments -  `--options="{'option1Key':'option1Value','option2Key':'option2Value'}`
+
+### Arguments
+
+- ` --containers `: specifies the Containers List
+
+Example:
+
+#### For restarting one Container
+```
+--containers="['containerOne']"
+```
+
+#### For restarting Multiple Containers
+```
+--containers="['container1','Container2','Container3'....'ContainerN']"
+
+```
+
+#### For User Options
+--options="{'Option1Key':'Option1Value','Option2Key':'Option2Value'....}"
 
 ---------------------------------------------------------------------------------------------- 
 
 ### `Container Start `
-   
-      ```
-      python app.py Container start --containers="['container1','container2',.....'containerN']"
-      
-      ```
-      Optional arguments -  `--options="{'option1Key':'option1Value','option2Key':'option2Value'}`
-      
-      ### Arguments
-      
-      - ` --containers `: specifies the Containers List
-      
-      Example:
-      
-      ```
-      #### For starting one Container
-      
-      --containers="['containerOne']"
-      ```
-      
-      
-      ```
-      
-      #### For starting Multiple Containers
-      
-      --containers="['container1','Container2','Container3'....'ContainerN']"
-      
-      ```
-      
-      ```
-      - ` --options `: User Options for starting Docker Containers
-      
-      ```
-      
-      #### For One User Options
-      --options="{'Option1Key':'Option1Value'}
-      
-      #### For Multiple User Options
-      --options="{'Option1Key':'Option1Value','Option2Key':'Option2Value'....}
-      
-      ```
+
+```
+python app.py Container start --containers="['container1','container2',.....'containerN']"
+
+```
+Optional arguments -  `--options="{'option1Key':'option1Value','option2Key':'option2Value'}`
+
+### Arguments
+
+- ` --containers `: specifies the Containers List
+
+Example:
+
+#### For starting one Container
+```
+--containers="['containerOne']"
+```
+
+#### For starting Multiple Containers
+```
+--containers="['container1','Container2','Container3'....'ContainerN']"
+```
+
+- ` --options `: User Options for starting Docker Containers
+
+#### For User Options
+--options="{'Option1Key':'Option1Value','Option2Key':'Option2Value'....}"
 
 ---------------------------------------------------------------------------------------------- 
 
 ### `Container Remove `
-   
-      ```
-      python app.py Container remove --containers="['container1','container2',.....'containerN']" 
-      
-      ```
-      Optional arguments -  `--options="{'option1Key':'option1Value','option2Key':'option2Value'}`
-      
-      ### Arguments
-      
-      - ` --containers `: specifies the Containers List
-      
-      Example:
-      
-      ```
-      #### For removing one Container
-      
-      --containers="['containerOne']"
-      ```
-      
-      
-      ```
-      
-      #### For removing Multiple Containers
-      
-      --containers="['container1','Container2','Container3'....'ContainerN']"
-      
-      ```
-      
-      ```
-      - ` --options `: User Options for removing Docker Containers
-      
-      ```
-      
-      #### For One User Options
-      --options="{'Option1Key':'Option1Value'}
-      
-      #### For Multiple User Options
-      --options="{'Option1Key':'Option1Value','Option2Key':'Option2Value'....}
-      
-      ```
+
+```
+python app.py Container remove --containers="['container1','container2',.....'containerN']" 
+
+```
+Optional arguments -  `--options="{'option1Key':'option1Value','option2Key':'option2Value'}`
+
+### Arguments
+
+- ` --containers `: specifies the Containers List
+
+Example:
+
+#### For removing one Container
+```
+--containers="['containerOne']"
+```
+
+
+#### For removing Multiple Containers
+```
+--containers="['container1','Container2','Container3'....'ContainerN']"
+```
+
+- ` --options `: User Options for removing Docker Containers
+
+
+#### For User Options
+--options="{'Option1Key':'Option1Value','Option2Key':'Option2Value'....}"
 
 ---------------------------------------------------------------------------------------------- 
 
 ### `Container Pause `
-   
-      ```
-      python app.py Container pause --containers="['container1','container2',.....'containerN']" 
-      
-      ```
-      Optional arguments -  `--options="{'option1Key':'option1Value','option2Key':'option2Value'}`
-      
-      ### Arguments
-      
-      - ` --containers `: specifies the Containers List
-      
-      Example:
-      
-      ```
-      #### For pausing one Container
-      
-      --containers="['containerOne']"
-      ```
-      
-      
-      ```
-      
-      #### For pausing Multiple Containers
-      
-      --containers="['container1','Container2','Container3'....'ContainerN']"
-      
-      ```
-      
-      ```
-      - ` --options `: User Options for pausing Docker Containers
-      
-      ```
-      
-      #### For One User Options
-      --options="{'Option1Key':'Option1Value'}
-      
-      #### For Multiple User Options
-      --options="{'Option1Key':'Option1Value','Option2Key':'Option2Value'....}
-      
-      ```
+
+```
+python app.py Container pause --containers="['container1','container2',.....'containerN']" 
+
+```
+Optional arguments -  `--options="{'option1Key':'option1Value','option2Key':'option2Value'}`
+
+### Arguments
+
+- ` --containers `: specifies the Containers List
+
+Example:
+
+#### For pausing one Container
+```
+--containers="['containerOne']"
+```
+
+
+#### For pausing Multiple Containers
+```
+--containers="['container1','Container2','Container3'....'ContainerN']"
+
+```
+
+- ` --options `: User Options for pausing Docker Containers
+
+#### For User Options
+--options="{'Option1Key':'Option1Value','Option2Key':'Option2Value'....}"
 
 ---------------------------------------------------------------------------------------------- 
 
 ### `Container UnPause `
-   
-      ```
-      python app.py Container unpause --containers="['container1','container2',.....'containerN']" 
-      
-      ```
-      Optional arguments -  `--options="{'option1Key':'option1Value','option2Key':'option2Value'}`
-      
-      ### Arguments
-      
-      - ` --containers `: specifies the Containers List
-      
-      Example:
-      
-      ```
-      #### For unpausing one Container
-      
-      --containers="['containerOne']"
-      ```
-      
-      
-      ```
-      
-      #### For unpausing Multiple Containers
-      
-      --containers="['container1','Container2','Container3'....'ContainerN']"
-      
-      ```
-      
-      ```
-      - ` --options `: User Options for unpausing Docker Containers
-      
-      ```
-      
-      #### For One User Options
-      --options="{'Option1Key':'Option1Value'}
-      
-      #### For Multiple User Options
-      --options="{'Option1Key':'Option1Value','Option2Key':'Option2Value'....}
-      
-      ```
+
+```
+python app.py Container unpause --containers="['container1','container2',.....'containerN']" 
+
+```
+Optional arguments -  `--options="{'option1Key':'option1Value','option2Key':'option2Value'}`
+
+### Arguments
+
+- ` --containers `: specifies the Containers List
+
+Example:
+
+#### For unpausing one Container
+```
+--containers="['containerOne']"
+```
+
+
+#### For unpausing Multiple Containers
+```
+--containers="['container1','Container2','Container3'....'ContainerN']"
+
+```
+
+- ` --options `: User Options for unpausing Docker Containers
+
+#### For User Options
+--options="{'Option1Key':'Option1Value','Option2Key':'Option2Value'....}"
 
 ---------------------------------------------------------------------------------------------- 
 
 ### `Container Export `
-   
-      ```
-      python app.py Container export --containers="['container1','container2',.....'containerN']" 
-      
-      ```
 
-      ### Arguments
-      
-      - ` --containers `: specifies the Containers List
-      
-      Example:
-      
-      ```
-      #### For exporting one Container
-      
-      --containers="['containerOne']"
-      ```
-      
-      
-      ```
-      
-      #### For exporting Multiple Containers
-      
-      --containers="['container1','Container2','Container3'....'ContainerN']"
-      
-      ```
+```
+python app.py Container export --containers="['container1','container2',.....'containerN']" 
+
+```
+
+### Arguments
+
+- ` --containers `: specifies the Containers List
+
+Example:
+
+#### For exporting one Container
+```
+--containers="['containerOne']"
+```
+
+
+#### For exporting Multiple Containers
+```
+--containers="['container1','Container2','Container3'....'ContainerN']"
+```
 
 
 ---------------------------------------------------------------------------------------------- 
 
 ### `Container  Logs`
-   
-      ```
-      python app.py Container logs --containers="['container1','container2',.....'containerN']" 
-      
-      ```
-      Positional arguments -  < --output / --file 
-      
-      ### Arguments
-      
-      - ` --containers `: specifies the Containers List
-      
-      Example:
-      
-      ```
-      #### Get the logs for  one Container
-      
-      --containers="['containerOne']"
-      ```
-      
-      
-      ```
-      
-      #### Get the logs for  Multiple Containers
-      
-      --containers="['container1','Container2','Container3'....'ContainerN']"
-      
-      ```
-      - ` --output `: Get the Logs in Terminal
-      
-      Example:
-      
-      ```
-      
-      python app.py Container logs --containers="['container1','container2',.....'containerN']" --output
-      ```
-      - ` --file `: Get the Logs in file with container name as the file name
-      
-      Example:
-      
-      ```
-      
-      python app.py Container logs --containers="['container1','container2',.....'containerN']" --file
-      ```
+
+```
+python app.py Container logs --containers="['container1','container2',.....'containerN']" 
+
+```
+Positional arguments -  < --output / --file 
+
+### Arguments
+
+- ` --containers `: specifies the Containers List
+
+Example:
+
+#### Get the logs for  one Container
+```
+--containers="['containerOne']"
+```
+
+
+#### Get the logs for  Multiple Containers
+```
+--containers="['container1','Container2','Container3'....'ContainerN']"
+
+```
+
+- ` --output `: Get the Logs in Terminal
+
+Example:
+
+```
+python app.py Container logs --containers="['container1','container2',.....'containerN']" --output
+```
+
+- ` --file `: Get the Logs in file with container name as the file name
+
+Example:
+
+```
+python app.py Container logs --containers="['container1','container2',.....'containerN']" --file
+```
 
 
 
 ---------------------------------------------------------------------------------------------- 
 
 ### `Container Prune `
-   
-      ```
-      python app.py Container prune --all 
-      
-      ```
-      Positional arguments -  < -all 
-      
-      ### Arguments
-      
-      - ` --all `: specifies the all stopped Containers
-      
-      Example:
-      
-      ```
-      python app.py Container prune --all
-      ```
-     
+
+```
+python app.py Container prune --all 
+
+```
+Positional arguments -  < -all 
+
+### Arguments
+
+- ` --all `: specifies the all stopped Containers
+
+Example:
+
+```
+python app.py Container prune --all
+```
+
 
 
 ---------------------------------------------------------------------------------------------- 
 
 ### `Container  Top`
-   
-      ```
-      python app.py Container top --containers="['container1','container2',.....'containerN']" --output
- 
-      ### Arguments
-      
-      - ` --containers `: specifies the Containers List
-      
-      Example:
-      
-      ```
-      #### Get the logs for  one Container
-      
-      --containers="['containerOne']"
-      ```
-      
-      
-      ```
-      
-      #### Get the logs for  Multiple Containers
-      
-      --containers="['container1','Container2','Container3'....'ContainerN']"
-      
-      ```
-      
-      ```
-      - `--output` : getting the logs in the terminal in each container
-      Example:
-      
-      ```      
-      python app.py Container top --containers="['container1','container2',.....'containerN']" --output
-      ```
-      -  `--file` : Getting the logs as the file with the container name as the file name
-      
-      ```
-      Example:
-      
-      ```      
-      python app.py Container top --containers="['container1','container2',.....'containerN']" --file
-      ```    
+
+```
+python app.py Container top --containers="['container1','container2',.....'containerN']" --output
+```
+
+### Arguments
+
+- ` --containers `: specifies the Containers List
+
+Example:
+
+#### Get the logs for  one Container
+```
+--containers="['containerOne']"
+```
+
+
+#### Get the logs for  Multiple Containers
+```
+--containers="['container1','Container2','Container3'....'ContainerN']"
+
+```
+
+- `--output` : getting the logs in the terminal in each container
+
+Example:
+
+```      
+python app.py Container top --containers="['container1','container2',.....'containerN']" --output
+```
+
+-  `--file` : Getting the logs as the file with the container name as the file name
+
+Example:
+
+```      
+python app.py Container top --containers="['container1','container2',.....'containerN']" --file
+```    
 
 ---------------------------------------------------------------------------------------------- 
 
 ### `Container Rename `
-   
-      ```
-      python app.py Container rename --containers="{'Container1newName':'Container1oldName',......,'Container_N_newName':'Container_N_oldName'}" 
-      
-      ```
-      Optional arguments -  `--options="{'option1Key':'option1Value','option2Key':'option2Value'}`
-      
-      ### Arguments
-      
-      - ` --containers `: specifies the Containers List
-      
-      Example:
-      
-      ```
-      #### For renaming one Container
-      
-      --containers="{'ContainerNewName':'ContainerOldName'}"
-      ```
-      
-      
-      ```
-      
-      #### For renaming Multiple Containers
-      
-      --containers="{'Container1newName':'Container1oldName',......,'Container_N_newName':'Container_N_oldName'}"
-      
-      ```
+
+```
+python app.py Container rename --containers="{'Container1newName':'Container1oldName',......,'Container_N_newName':'Container_N_oldName'}" 
+
+```
+Optional arguments -  `--options="{'option1Key':'option1Value','option2Key':'option2Value'}`
+
+```
+-  ` --containers `: specifies the Containers List
+```
+
+Example:
+
+#### For renaming one Container
+```
+--containers="{'ContainerNewName':'ContainerOldName'}"
+```
+
+
+#### For renaming Multiple Containers
+```
+--containers="{'Container1newName':'Container1oldName',......,'Container_N_newName':'Container_N_oldName'}"
+```
