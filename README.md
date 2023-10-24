@@ -145,8 +145,7 @@ Optional arguments -  `--options="{'option1Key':'option1Value','option2Key':'opt
 
 #### For User Options
 ```
-```
---o```ptions="{'Option1Key':'Option1Value','Option2Key':'Option2Value'....}"
+--options="{'Option1Key':'Option1Value','Option2Key':'Option2Value'....}"
 ```
 ---------------------------------------------------------------------------------------------- 
 
