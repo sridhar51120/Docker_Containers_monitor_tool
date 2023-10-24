@@ -86,7 +86,7 @@ Optional arguments -  `--options="{'option1Key':'option1Value','option2Key':'opt
 
 - ` --containers `: specifies the Containers List
 
-<u> Example: </u>
+### Example:
 
 #### For Creating one Container
 
@@ -128,7 +128,7 @@ Optional arguments -  `--options="{'option1Key':'option1Value','option2Key':'opt
 
 - ` --containers `: specifies the Containers List
 
-<u> Example: </u>
+### Example:
 
 #### For stopping one Container
 ```
@@ -161,7 +161,7 @@ Optional arguments -  `--options="{'option1Key':'option1Value','option2Key':'opt
 
 - ` --containers `: specifies the Containers List
 
-<u> Example: </u>
+### Example:
 
 #### For restarting one Container
 ```
@@ -192,7 +192,7 @@ Optional arguments -  `--options="{'option1Key':'option1Value','option2Key':'opt
 
 - ` --containers `: specifies the Containers List
 
-<u> Example: </u>
+### Example:
 
 #### For starting one Container
 ```
@@ -224,7 +224,7 @@ Optional arguments -  `--options="{'option1Key':'option1Value','option2Key':'opt
 
 - ` --containers `: specifies the Containers List
 
-<u> Example: </u>
+### Example:
 
 #### For removing one Container
 ```
@@ -258,7 +258,7 @@ Optional arguments -  `--options="{'option1Key':'option1Value','option2Key':'opt
 
 - ` --containers `: specifies the Containers List
 
-<u> Example: </u>
+### Example:
 
 #### For pausing one Container
 ```
@@ -292,7 +292,7 @@ Optional arguments -  `--options="{'option1Key':'option1Value','option2Key':'opt
 
 - ` --containers `: specifies the Containers List
 
-<u> Example: </u>
+### Example:
 
 #### For unpausing one Container
 ```
@@ -325,7 +325,7 @@ python app.py Container export --containers="['container1','container2',.....'co
 
 - ` --containers `: specifies the Containers List
 
-<u> Example: </u>
+### Example:
 
 #### For exporting one Container
 ```
@@ -353,7 +353,7 @@ Positional arguments -  < --output / --file
 
 - ` --containers `: specifies the Containers List
 
-<u> Example: </u>
+### Example:
 
 #### Get the logs for  one Container
 ```
@@ -369,7 +369,7 @@ Positional arguments -  < --output / --file
 
 - ` --output `: Get the Logs in Terminal
 
-<u> Example: </u>
+### Example:
 
 ```
 python app.py Container logs --containers="['container1','container2',.....'containerN']" --output
@@ -377,7 +377,7 @@ python app.py Container logs --containers="['container1','container2',.....'cont
 
 - ` --file `: Get the Logs in file with container name as the file name
 
-<u> Example: </u>
+### Example:
 
 ```
 python app.py Container logs --containers="['container1','container2',.....'containerN']" --file
@@ -399,7 +399,7 @@ Positional arguments -  < -all
 
 - ` --all `: specifies the all stopped Containers
 
-<u> Example: </u>
+### Example:
 
 ```
 python app.py Container prune --all
@@ -419,7 +419,7 @@ python app.py Container top --containers="['container1','container2',.....'conta
 
 - ` --containers `: specifies the Containers List
 
-<u> Example: </u>
+### Example:
 
 #### Get the logs for  one Container
 ```
@@ -435,7 +435,7 @@ python app.py Container top --containers="['container1','container2',.....'conta
 
 - `--output` : getting the logs in the terminal in each container
 
-<u> Example: </u>
+### Example:
 
 ```      
 python app.py Container top --containers="['container1','container2',.....'containerN']" --output
@@ -443,7 +443,7 @@ python app.py Container top --containers="['container1','container2',.....'conta
 
 -  `--file` : Getting the logs as the file with the container name as the file name
 
-<u> Example: </u>
+### Example:
 
 ```      
 python app.py Container top --containers="['container1','container2',.....'containerN']" --file
@@ -463,7 +463,7 @@ Optional arguments -  `--options="{'option1Key':'option1Value','option2Key':'opt
 -  ` --containers `: specifies the Containers List
 ```
 
-<u> Example: </u>
+### Example:
 
 #### For renaming one Container
 ```
