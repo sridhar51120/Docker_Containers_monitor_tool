@@ -347,7 +347,7 @@ python app.py Container export --containers="['container1','container2',.....'co
 python app.py Container logs --containers="['container1','container2',.....'containerN']" 
 
 ```
-Positional arguments -  < --output / --file 
+Positional arguments - ` --output / --file `
 
 ### Arguments
 
@@ -393,7 +393,7 @@ python app.py Container logs --containers="['container1','container2',.....'cont
 python app.py Container prune --all 
 
 ```
-Positional arguments -  < -all 
+Positional arguments -  <` -all `>
 
 ### Arguments
 
