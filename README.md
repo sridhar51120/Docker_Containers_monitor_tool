@@ -38,11 +38,19 @@ checks if python is installed in our system open the terminal and enter the belo
 
 if the pyhton is not available in the system then
 follow the steps to install python in our system
-1) For Windows
+1) For Window Operating Systems
 
-go to this website and download the python original in the official website 
+Installation guide for windows Operating System
 
-   https://www.python.org/downloads/
+>  https://www.digitalocean.com/community/tutorials/install-python-windows-10
+
+2) For Linux Operating Systems
+Installation guide for Linux Operating System
+>  https://www.digitalocean.com/community/tutorials/how-to-install-python-3-and-set-up-a-programming-environment-on-an-ubuntu-20-04-server
+
+3) For Mac Operating Systems
+Installation guide for Mac Operating System
+>  https://www.digitalocean.com/community/tutorials/how-to-install-python-3-and-set-up-a-local-programming-environment-on-macos
 
 ### Lets Divide into our Project
 
@@ -78,7 +86,7 @@ Optional arguments -  `--options="{'option1Key':'option1Value','option2Key':'opt
 
 - ` --containers `: specifies the Containers List
 
-Example:
+<u> Example: </u>
 
 #### For Creating one Container
 
@@ -101,6 +109,7 @@ Example:
 
 
 #### For User Options
+
 ```
 --options="{'Option1Key':'Option1Value','Option2Key':'Option2Value'....}"
 ```
@@ -119,7 +128,7 @@ Optional arguments -  `--options="{'option1Key':'option1Value','option2Key':'opt
 
 - ` --containers `: specifies the Containers List
 
-Example:
+<u> Example: </u>
 
 #### For stopping one Container
 ```
@@ -135,8 +144,10 @@ Example:
 - ` --options `: User Options for stoping Docker Containers
 
 #### For User Options
---options="{'Option1Key':'Option1Value','Option2Key':'Option2Value'....}"
-
+```
+```
+--o```ptions="{'Option1Key':'Option1Value','Option2Key':'Option2Value'....}"
+```
 ---------------------------------------------------------------------------------------------- 
 
 ### ` Container Restart `
@@ -151,7 +162,7 @@ Optional arguments -  `--options="{'option1Key':'option1Value','option2Key':'opt
 
 - ` --containers `: specifies the Containers List
 
-Example:
+<u> Example: </u>
 
 #### For restarting one Container
 ```
@@ -165,8 +176,10 @@ Example:
 ```
 
 #### For User Options
---options="{'Option1Key':'Option1Value','Option2Key':'Option2Value'....}"
-
+```
+```
+--o```ptions="{'Option1Key':'Option1Value','Option2Key':'Option2Value'....}"
+```
 ---------------------------------------------------------------------------------------------- 
 
 ### `Container Start `
@@ -181,7 +194,7 @@ Optional arguments -  `--options="{'option1Key':'option1Value','option2Key':'opt
 
 - ` --containers `: specifies the Containers List
 
-Example:
+<u> Example: </u>
 
 #### For starting one Container
 ```
@@ -196,8 +209,9 @@ Example:
 - ` --options `: User Options for starting Docker Containers
 
 #### For User Options
+```
 --options="{'Option1Key':'Option1Value','Option2Key':'Option2Value'....}"
-
+```
 ---------------------------------------------------------------------------------------------- 
 
 ### `Container Remove `
@@ -212,7 +226,7 @@ Optional arguments -  `--options="{'option1Key':'option1Value','option2Key':'opt
 
 - ` --containers `: specifies the Containers List
 
-Example:
+<u> Example: </u>
 
 #### For removing one Container
 ```
@@ -229,8 +243,9 @@ Example:
 
 
 #### For User Options
+```
 --options="{'Option1Key':'Option1Value','Option2Key':'Option2Value'....}"
-
+```
 ---------------------------------------------------------------------------------------------- 
 
 ### `Container Pause `
@@ -245,7 +260,7 @@ Optional arguments -  `--options="{'option1Key':'option1Value','option2Key':'opt
 
 - ` --containers `: specifies the Containers List
 
-Example:
+<u> Example: </u>
 
 #### For pausing one Container
 ```
@@ -262,8 +277,9 @@ Example:
 - ` --options `: User Options for pausing Docker Containers
 
 #### For User Options
+```
 --options="{'Option1Key':'Option1Value','Option2Key':'Option2Value'....}"
-
+```
 ---------------------------------------------------------------------------------------------- 
 
 ### `Container UnPause `
@@ -278,7 +294,7 @@ Optional arguments -  `--options="{'option1Key':'option1Value','option2Key':'opt
 
 - ` --containers `: specifies the Containers List
 
-Example:
+<u> Example: </u>
 
 #### For unpausing one Container
 ```
@@ -295,8 +311,9 @@ Example:
 - ` --options `: User Options for unpausing Docker Containers
 
 #### For User Options
+```
 --options="{'Option1Key':'Option1Value','Option2Key':'Option2Value'....}"
-
+```
 ---------------------------------------------------------------------------------------------- 
 
 ### `Container Export `
@@ -310,7 +327,7 @@ python app.py Container export --containers="['container1','container2',.....'co
 
 - ` --containers `: specifies the Containers List
 
-Example:
+<u> Example: </u>
 
 #### For exporting one Container
 ```
@@ -338,7 +355,7 @@ Positional arguments -  < --output / --file
 
 - ` --containers `: specifies the Containers List
 
-Example:
+<u> Example: </u>
 
 #### Get the logs for  one Container
 ```
@@ -354,7 +371,7 @@ Example:
 
 - ` --output `: Get the Logs in Terminal
 
-Example:
+<u> Example: </u>
 
 ```
 python app.py Container logs --containers="['container1','container2',.....'containerN']" --output
@@ -362,7 +379,7 @@ python app.py Container logs --containers="['container1','container2',.....'cont
 
 - ` --file `: Get the Logs in file with container name as the file name
 
-Example:
+<u> Example: </u>
 
 ```
 python app.py Container logs --containers="['container1','container2',.....'containerN']" --file
@@ -384,7 +401,7 @@ Positional arguments -  < -all
 
 - ` --all `: specifies the all stopped Containers
 
-Example:
+<u> Example: </u>
 
 ```
 python app.py Container prune --all
@@ -404,7 +421,7 @@ python app.py Container top --containers="['container1','container2',.....'conta
 
 - ` --containers `: specifies the Containers List
 
-Example:
+<u> Example: </u>
 
 #### Get the logs for  one Container
 ```
@@ -420,7 +437,7 @@ Example:
 
 - `--output` : getting the logs in the terminal in each container
 
-Example:
+<u> Example: </u>
 
 ```      
 python app.py Container top --containers="['container1','container2',.....'containerN']" --output
@@ -428,7 +445,7 @@ python app.py Container top --containers="['container1','container2',.....'conta
 
 -  `--file` : Getting the logs as the file with the container name as the file name
 
-Example:
+<u> Example: </u>
 
 ```      
 python app.py Container top --containers="['container1','container2',.....'containerN']" --file
@@ -448,7 +465,7 @@ Optional arguments -  `--options="{'option1Key':'option1Value','option2Key':'opt
 -  ` --containers `: specifies the Containers List
 ```
 
-Example:
+<u> Example: </u>
 
 #### For renaming one Container
 ```
